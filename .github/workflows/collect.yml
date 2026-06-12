@@ -8,6 +8,8 @@ on:
 jobs:
   collect:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     concurrency:
       group: collect
       cancel-in-progress: false
