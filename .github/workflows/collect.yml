@@ -26,13 +26,20 @@ jobs:
 
       - run: pip install requests
 
-      - name: Collect
+      - name: Collect ÖPNV delays
         env:
-          STOP_IDS: ${{ secrets.STOP_IDS }}
+          EXTRA_STOP_IDS: ${{ secrets.EXTRA_STOP_IDS }}
           DATA_DIR: data
         run: |
           curl -sO https://raw.githubusercontent.com/${{ github.repository }}/main/collect.py
           python collect.py
+
+      - name: Publish current.json
+        env:
+          DATA_DIR: data
+        run: |
+          curl -sO https://raw.githubusercontent.com/${{ github.repository }}/main/publish.py
+          python publish.py
 
       - name: Commit
         run: |

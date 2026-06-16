@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-Verspätungs-Logger Bonn — Korridor B56/Adenauerallee
+Verspätungs-Logger Bonn — Innenstadt-Gesamtbild + Korridor B56/Adenauerallee
 via VRR EFA Departureboard API (öffentlich, keine Auth nötig)
 
-Konfiguration via Umgebungsvariablen / GitHub Secrets:
-  EXTRA_STOP_IDS   zusätzliche DHID-IDs (kommasepariert, optional)
-  DATA_DIR         Pfad zum data-Verzeichnis (default: "data")
+Anlass: Nordbrücken-Sperrung ab 03.06.2026 + geplante Busstreifenentfernung B56.
+Ziel:   Messung der Auswirkungen auf ÖPNV-Pünktlichkeit und Vergleich der Korridore.
 
-Feste Haltestellen (aus DELFI-Daten 2026-06-08, zHV Bonn):
-  Kasernenstr./Bertha-von-Suttner  → Umweltspur BLEIBT
-  Adenauerallee / Stadtbahn        → unterirdisch, stauunabhängig (Referenz)
-  B56 Kölnstr./Bornheimer Str.     → Umweltspur ENTFÄLLT  ← hier messen wir
+Korridore:
+  innenstadt        → Hauptknotenpunkte Innenstadt (Gesamtbild)
+  Kasernenstr_bleibt → Busspur bleibt (Bertha-von-Suttner-Platz / Stadthaus)
+  Adenauerallee_ref  → Referenz (Stadtbahn unterirdisch, stauunabhängig)
+  B56_entfaellt      → Busspur entfällt (Kölnstr./Bornheimer Str.)
 """
 
 import csv
@@ -21,15 +21,20 @@ from pathlib import Path
 
 import requests
 
-# ── Haltestellen mit Korridor-Label ───────────────────────────────────────────
+# ── Haltestellen ──────────────────────────────────────────────────────────────
 STOPS = [
-    # DHID                          Korridor
-    ("de:05314:61115", "Kasernenstr_bleibt"),   # Bertha-von-Suttner-Pl./Beethovenhaus
-    ("de:05314:61114", "Kasernenstr_bleibt"),   # Stadthaus
-    ("de:05314:61208", "Adenauerallee_ref"),    # Bundesrechnungshof/AA
-    ("de:05314:62116", "Adenauerallee_ref"),    # Heussallee/Museumsmeile
-    ("de:05314:61197", "B56_entfaellt"),        # Friedensplatz
-    ("de:05314:61122", "B56_entfaellt"),        # Thomas-Mann-Str.
+    # DHID                   Korridor                  Kommentar
+    # Innenstadt-Knotenpunkte (Gesamtbild)
+    ("22002667",             "innenstadt"),   # Brüdergasse/Bertha-von-Suttner-Pl. (117,551,602,603,606,607,640)
+    ("22000687",             "innenstadt"),   # Bonn Hbf (61,62,601,604,606,609,611,640)
+    ("22001142",             "innenstadt"),   # Colmantstr./Hbf (600–607)
+    # Korridor-Vergleich B56 vs. Kasernenstr. vs. AA-Referenz
+    ("de:05314:61115",       "Kasernenstr_bleibt"),   # Bertha-von-Suttner-Pl./Beethovenhaus
+    ("de:05314:61114",       "Kasernenstr_bleibt"),   # Stadthaus
+    ("de:05314:61208",       "Adenauerallee_ref"),    # Bundesrechnungshof/AA
+    ("de:05314:62116",       "Adenauerallee_ref"),    # Heussallee/Museumsmeile
+    ("de:05314:61197",       "B56_entfaellt"),        # Friedensplatz
+    ("de:05314:61122",       "B56_entfaellt"),        # Thomas-Mann-Str.
 ]
 
 # Optionale zusätzliche Stops aus Umgebungsvariable
@@ -48,7 +53,7 @@ COLUMNS = [
     "status",
 ]
 
-# ── EFA-Abfahrtstafel abrufen ──────────────────────────────────────────────────
+
 def fetch_departures(stop_id: str) -> dict:
     params = {
         "outputFormat":      "JSON",
@@ -64,6 +69,7 @@ def fetch_departures(stop_id: str) -> dict:
     r = requests.get(EFA_BASE, params=params, timeout=20)
     r.raise_for_status()
     return r.json()
+
 
 def parse_departures(raw: dict, stop_id: str, corridor: str, collected_at: str) -> list[dict]:
     rows = []
@@ -112,6 +118,7 @@ def parse_departures(raw: dict, stop_id: str, corridor: str, collected_at: str) 
             continue
     return rows
 
+
 def write_rows(rows: list[dict], collected_at: str):
     if not rows:
         return
@@ -123,6 +130,7 @@ def write_rows(rows: list[dict], collected_at: str):
         if new:
             w.writeheader()
         w.writerows(rows)
+
 
 def main():
     now   = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -137,6 +145,7 @@ def main():
         except Exception as e:
             print(f"  FEHLER {stop_id}: {e}", file=sys.stderr)
     print(f"{now}  gesamt: {total} Zeilen")
+
 
 if __name__ == "__main__":
     main()
