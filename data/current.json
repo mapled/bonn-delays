@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-06-16T20:21:29Z",
+  "updated_at": "2026-06-16T22:24:04Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 2.8,
+    "avg_delay_min": 0.1,
     "median_delay_min": 0.0,
     "n_departures": 140,
-    "pct_on_time": 82.1,
-    "pct_over_3min": 9.3,
-    "pct_over_5min": 1.4
+    "pct_on_time": 99.3,
+    "pct_over_3min": 0.7,
+    "pct_over_5min": 0.0
   },
   "miv": {
     "12": {
@@ -18,9 +18,9 @@
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 5.4,
+      "current_min": 4.4,
       "avg_min": 5.6,
-      "delta_min": -0.2,
+      "delta_min": -1.2,
       "status": "fast"
     },
     "14": {
