@@ -1,33 +1,33 @@
 {
-  "updated_at": "2026-06-16T12:20:01Z",
+  "updated_at": "2026-06-16T17:25:03Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 6.94,
+    "avg_delay_min": 13.59,
     "median_delay_min": 2.5,
     "n_departures": 140,
-    "pct_on_time": 44.3,
-    "pct_over_3min": 45.0,
-    "pct_over_5min": 36.4
+    "pct_on_time": 45.7,
+    "pct_over_3min": 48.6,
+    "pct_over_5min": 42.9
   },
   "miv": {
     "12": {
       "name": "A59 → Kennedybrücke",
-      "current_min": 13.1,
+      "current_min": 13.9,
       "avg_min": 6.6,
-      "delta_min": 6.5,
+      "delta_min": 7.3,
       "status": "slow"
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 8.7,
+      "current_min": 10.7,
       "avg_min": 5.6,
-      "delta_min": 3.1,
+      "delta_min": 5.1,
       "status": "slow"
     },
     "14": {
       "name": "Kölnstr. → Bertha",
-      "current_min": 8.6,
+      "current_min": 7.8,
       "avg_min": 6.7,
-      "delta_min": 1.9,
+      "delta_min": 1.1,
       "status": "moderate"
     }
   },
