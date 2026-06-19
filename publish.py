@@ -173,21 +173,66 @@ def compute_7day_avg() -> dict:
     return result
 
 
+# ── MIV 7-Tage-Schnitt aus CSV ───────────────────────────────────────────────
+def compute_miv_7day_avg() -> dict:
+    cutoff = datetime.now(timezone.utc) - timedelta(days=7)
+    currents: list[float] = []
+    deltas: list[float] = []
+    n_days: set[str] = set()
+
+    for csv_path in sorted(DATA_DIR.glob("miv_*.csv")):
+        try:
+            with open(csv_path, encoding="utf-8") as f:
+                for row in csv.DictReader(f):
+                    try:
+                        if int(row.get("route_id", -1)) != MIV_PRIMARY:
+                            continue
+                        ts = datetime.fromisoformat(row["collected_at"].replace("Z", "+00:00"))
+                        if ts < cutoff:
+                            continue
+                        # Nur Tageszeiten 6–20h (kein Nacht-Bias)
+                        if not (6 <= ts.hour < 20):
+                            continue
+                        n_days.add(ts.date().isoformat())
+                        if row.get("current_min"):
+                            currents.append(float(row["current_min"]))
+                        if row.get("delta_min"):
+                            deltas.append(float(row["delta_min"]))
+                    except Exception:
+                        pass
+        except Exception:
+            pass
+
+    MIN_DAYS = 7
+    if len(n_days) < MIN_DAYS:
+        return {"available": False, "days_collected": len(n_days), "min_days": MIN_DAYS}
+
+    return {
+        "available": True,
+        "days_collected": len(n_days),
+        "avg_current_min": round(statistics.mean(currents), 1) if currents else None,
+        "avg_delta_min":   round(statistics.mean(deltas), 2)   if deltas   else None,
+        "n": len(currents),
+    }
+
+
 # ── Zusammenführen und schreiben ──────────────────────────────────────────────
 def main():
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     print(f"Erstelle current.json ({now})")
 
-    oepnv   = fetch_oepnv_delays()
-    miv     = fetch_miv()
+    oepnv    = fetch_oepnv_delays()
+    miv      = fetch_miv()
     archive_miv(miv, now)
-    avg_7d  = compute_7day_avg()
+    avg_7d   = compute_7day_avg()
+    miv_7d   = compute_miv_7day_avg()
 
     out = {
         "updated_at": now,
         "oepnv_aktuell": oepnv,
         "miv": miv,
         "oepnv_7tage": avg_7d,
+        "miv_7tage": miv_7d,
     }
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)
