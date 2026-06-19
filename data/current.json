@@ -1,33 +1,33 @@
 {
-  "updated_at": "2026-06-19T14:28:18Z",
+  "updated_at": "2026-06-19T16:57:13Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 5.69,
+    "avg_delay_min": 5.71,
     "median_delay_min": 0.0,
     "n_departures": 140,
-    "pct_on_time": 63.6,
-    "pct_over_3min": 23.6,
-    "pct_over_5min": 22.9
+    "pct_on_time": 71.4,
+    "pct_over_3min": 22.9,
+    "pct_over_5min": 17.9
   },
   "miv": {
     "12": {
       "name": "A59 → Kennedybrücke",
-      "current_min": 6.5,
+      "current_min": 6.9,
       "avg_min": 6.7,
-      "delta_min": -0.2,
-      "status": "fast"
+      "delta_min": 0.2,
+      "status": "moderate"
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 8.7,
+      "current_min": 7.2,
       "avg_min": 5.6,
-      "delta_min": 3.1,
-      "status": "slow"
+      "delta_min": 1.6,
+      "status": "moderate"
     },
     "14": {
       "name": "Kölnstr. → Bertha",
-      "current_min": 9.5,
+      "current_min": 7,
       "avg_min": 6.8,
-      "delta_min": 2.7,
+      "delta_min": 0.2,
       "status": "moderate"
     }
   },
@@ -35,24 +35,24 @@
     "available": true,
     "days_collected": 7,
     "Kasernenstr_bleibt": {
-      "avg_delay_min": 4.43,
-      "pct_on_time": 80.6,
-      "n": 3510
+      "avg_delay_min": 4.41,
+      "pct_on_time": 80.4,
+      "n": 3570
     },
     "Adenauerallee_ref": {
-      "avg_delay_min": 1.56,
-      "pct_on_time": 89.7,
-      "n": 3420
+      "avg_delay_min": 1.64,
+      "pct_on_time": 89.1,
+      "n": 3480
     },
     "B56_entfaellt": {
-      "avg_delay_min": 3.77,
+      "avg_delay_min": 3.73,
       "pct_on_time": 84.5,
-      "n": 3390
+      "n": 3450
     },
     "innenstadt": {
       "avg_delay_min": 6.69,
-      "pct_on_time": 74.9,
-      "n": 2250
+      "pct_on_time": 75.1,
+      "n": 2340
     }
   },
   "miv_7tage": {
