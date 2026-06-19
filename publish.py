@@ -85,6 +85,35 @@ def fetch_oepnv_delays() -> dict:
 
 
 # ── MIV: bundesstaustadt.de ──────────────────────────────────────────────────
+MIV_CSV_COLUMNS = [
+    "collected_at", "route_id", "route_name",
+    "current_min", "avg_min", "delta_min", "status",
+]
+
+
+def archive_miv(miv_data: dict, collected_at: str):
+    """Hängt MIV-Messwerte an miv_YYYY-MM.csv an (analog zu delays_*.csv)."""
+    if "error" in miv_data:
+        return
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    path = DATA_DIR / f"miv_{collected_at[:7]}.csv"
+    new = not path.exists()
+    with open(path, "a", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=MIV_CSV_COLUMNS)
+        if new:
+            w.writeheader()
+        for rid, vals in miv_data.items():
+            w.writerow({
+                "collected_at": collected_at,
+                "route_id":     rid,
+                "route_name":   vals.get("name", ""),
+                "current_min":  vals.get("current_min", ""),
+                "avg_min":      vals.get("avg_min", ""),
+                "delta_min":    vals.get("delta_min", ""),
+                "status":       vals.get("status", ""),
+            })
+
+
 def fetch_miv() -> dict:
     try:
         r = requests.get("https://bundesstaustadt.de/api/routes/stats", timeout=15)
@@ -151,6 +180,7 @@ def main():
 
     oepnv   = fetch_oepnv_delays()
     miv     = fetch_miv()
+    archive_miv(miv, now)
     avg_7d  = compute_7day_avg()
 
     out = {
@@ -168,6 +198,8 @@ def main():
     print(f"  ÖPNV: Ø {oepnv.get('avg_delay_min','?')} Min, {oepnv.get('n_departures','?')} Abfahrten")
     primary = miv.get(str(MIV_PRIMARY), {})
     print(f"  MIV (Route {MIV_PRIMARY}): {primary.get('current_min','?')} Min (Ø {primary.get('avg_min','?')})")
+    miv_path = DATA_DIR / f"miv_{now[:7]}.csv"
+    print(f"  MIV archiviert → {miv_path}")
     print(f"  7-Tage-Daten: {avg_7d.get('days_collected', 0)} Tage gesammelt")
 
 
