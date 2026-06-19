@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-06-19T21:33:53Z",
+  "updated_at": "2026-06-19T22:32:20Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 0.41,
+    "avg_delay_min": 0.54,
     "median_delay_min": 0.0,
     "n_departures": 140,
-    "pct_on_time": 98.6,
+    "pct_on_time": 99.3,
     "pct_over_3min": 0.7,
     "pct_over_5min": 0.7
   },
@@ -35,24 +35,24 @@
     "available": true,
     "days_collected": 7,
     "Kasernenstr_bleibt": {
-      "avg_delay_min": 4.25,
-      "pct_on_time": 80.6,
-      "n": 3750
+      "avg_delay_min": 4.18,
+      "pct_on_time": 80.9,
+      "n": 3810
     },
     "Adenauerallee_ref": {
-      "avg_delay_min": 1.62,
-      "pct_on_time": 89.1,
-      "n": 3660
+      "avg_delay_min": 1.6,
+      "pct_on_time": 89.3,
+      "n": 3720
     },
     "B56_entfaellt": {
-      "avg_delay_min": 3.56,
-      "pct_on_time": 84.8,
-      "n": 3630
+      "avg_delay_min": 3.5,
+      "pct_on_time": 85.1,
+      "n": 3690
     },
     "innenstadt": {
-      "avg_delay_min": 6.27,
-      "pct_on_time": 76.2,
-      "n": 2610
+      "avg_delay_min": 6.09,
+      "pct_on_time": 76.9,
+      "n": 2700
     }
   },
   "miv_7tage": {
