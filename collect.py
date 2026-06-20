@@ -35,6 +35,9 @@ STOPS = [
     ("de:05314:62116",       "Adenauerallee_ref"),    # Heussallee/Museumsmeile
     ("de:05314:61197",       "B56_entfaellt"),        # Friedensplatz
     ("de:05314:61122",       "B56_entfaellt"),        # Thomas-Mann-Str.
+    # Stadtbahn U-Tunnel (unterirdisch, stauunabhängig)
+    ("de:05314:61101",       "stadtbahn"),            # Bonn Hbf Stadtbahn (U-Bahnsteig)
+    ("de:05314:61110",       "stadtbahn"),            # Universität/Markt (U-Tunnel)
 ]
 
 # Optionale zusätzliche Stops aus Umgebungsvariable

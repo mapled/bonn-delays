@@ -33,55 +33,94 @@ MIV_PRIMARY = 12  # Hauptindikator für das Widget
 
 
 # ── ÖPNV: aktuelle Abfahrten abrufen ─────────────────────────────────────────
-STOPS_INNENSTADT = [
-    "22002667",       # Brüdergasse/Bertha-von-Suttner-Pl.
-    "22000687",       # Bonn Hbf
-    "22001142",       # Colmantstr./Hbf
-    "de:05314:61115", # Bertha-von-Suttner-Pl./Beethovenhaus
-    "de:05314:61114", # Stadthaus
-    "de:05314:61197", # Friedensplatz
-    "de:05314:61122", # Thomas-Mann-Str.
-]
+STOPS_BY_CORRIDOR = {
+    "stadtbahn": [
+        "de:05314:61101",   # Bonn Hbf Stadtbahn (U-Bahnsteig)
+        "de:05314:61110",   # Universität/Markt (U-Tunnel)
+    ],
+    "kaserne": [
+        "de:05314:61115",   # Bertha-von-Suttner-Pl./Beethovenhaus
+        "de:05314:61114",   # Stadthaus
+    ],
+    "b56": [
+        "de:05314:61197",   # Friedensplatz
+        "de:05314:61122",   # Thomas-Mann-Str.
+    ],
+    "_innenstadt": [        # Gesamtbild (kein eigener Korridor im Widget)
+        "22002667",
+        "22000687",
+        "22001142",
+    ],
+}
 
 EFA_BASE = "https://efa.vrr.de/vrr/XML_DM_REQUEST"
 
 
-def fetch_oepnv_delays() -> dict:
+def _fetch_stop_delays(stop_id: str) -> list[float]:
+    """Gibt Liste der Verspätungsminuten für eine Haltestelle zurück."""
+    r = requests.get(EFA_BASE, params={
+        "outputFormat": "JSON", "type_dm": "stop", "name_dm": stop_id,
+        "mode": "direct", "useRealtime": 1, "limit": 20, "depType": "stopEvents",
+    }, timeout=15)
+    deps = r.json().get("departureList", [])
     delays = []
-    n_total = 0
-    for stop_id in STOPS_INNENSTADT:
+    for dep in deps:
+        dt_plan = dep.get("dateTime", {})
+        dt_real = dep.get("realDateTime", dep.get("dateTime", {}))
         try:
-            r = requests.get(EFA_BASE, params={
-                "outputFormat": "JSON", "type_dm": "stop", "name_dm": stop_id,
-                "mode": "direct", "useRealtime": 1, "limit": 20, "depType": "stopEvents",
-            }, timeout=15)
-            deps = r.json().get("departureList", [])
-            for dep in deps:
-                dt_plan = dep.get("dateTime", {})
-                dt_real = dep.get("realDateTime", dep.get("dateTime", {}))
-                try:
-                    def to_dt(dt):
-                        return datetime(int(dt["year"]), int(dt["month"]), int(dt["day"]),
-                                        int(dt["hour"]), int(dt["minute"]), tzinfo=timezone.utc)
-                    d = (to_dt(dt_real) - to_dt(dt_plan)).total_seconds() / 60
-                    delays.append(round(d, 1))
-                    n_total += 1
-                except Exception:
-                    pass
-        except Exception as e:
-            print(f"  EFA FEHLER {stop_id}: {e}")
+            def to_dt(dt):
+                return datetime(int(dt["year"]), int(dt["month"]), int(dt["day"]),
+                                int(dt["hour"]), int(dt["minute"]), tzinfo=timezone.utc)
+            d = (to_dt(dt_real) - to_dt(dt_plan)).total_seconds() / 60
+            delays.append(round(d, 1))
+        except Exception:
+            pass
+    return delays
 
+
+def _corridor_stats(delays: list[float]) -> dict:
     if not delays:
         return {"error": "no data"}
-
     return {
-        "avg_delay_min":  round(statistics.mean(delays), 2),
+        "avg_delay_min":   round(statistics.mean(delays), 2),
         "median_delay_min": round(statistics.median(delays), 1),
-        "n_departures":   n_total,
-        "pct_on_time":    round(sum(1 for d in delays if d <= 1) / len(delays) * 100, 1),
-        "pct_over_3min":  round(sum(1 for d in delays if d > 3)  / len(delays) * 100, 1),
-        "pct_over_5min":  round(sum(1 for d in delays if d > 5)  / len(delays) * 100, 1),
+        "n":               len(delays),
+        "pct_on_time":     round(sum(1 for d in delays if d <= 1) / len(delays) * 100, 1),
+        "pct_over_3min":   round(sum(1 for d in delays if d > 3)  / len(delays) * 100, 1),
     }
+
+
+def fetch_oepnv_delays() -> dict:
+    all_delays: list[float] = []
+    per_corridor: dict[str, list[float]] = {}
+
+    for corridor, stops in STOPS_BY_CORRIDOR.items():
+        cor_delays: list[float] = []
+        for stop_id in stops:
+            try:
+                delays = _fetch_stop_delays(stop_id)
+                cor_delays.extend(delays)
+                all_delays.extend(delays)
+            except Exception as e:
+                print(f"  EFA FEHLER {stop_id}: {e}")
+        per_corridor[corridor] = cor_delays
+
+    if not all_delays:
+        return {"error": "no data"}
+
+    result = {
+        "avg_delay_min":    round(statistics.mean(all_delays), 2),
+        "median_delay_min": round(statistics.median(all_delays), 1),
+        "n_departures":     len(all_delays),
+        "pct_on_time":      round(sum(1 for d in all_delays if d <= 1) / len(all_delays) * 100, 1),
+        "pct_over_3min":    round(sum(1 for d in all_delays if d > 3)  / len(all_delays) * 100, 1),
+        "pct_over_5min":    round(sum(1 for d in all_delays if d > 5)  / len(all_delays) * 100, 1),
+    }
+    # Per-Korridor (ohne _innenstadt-Pseudo-Korridor)
+    for cor in ("stadtbahn", "kaserne", "b56"):
+        result[cor] = _corridor_stats(per_corridor.get(cor, []))
+
+    return result
 
 
 # ── MIV: bundesstaustadt.de ──────────────────────────────────────────────────
