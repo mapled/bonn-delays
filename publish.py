@@ -46,6 +46,10 @@ STOPS_BY_CORRIDOR = {
         "de:05314:61197",   # Friedensplatz
         "de:05314:61122",   # Thomas-Mann-Str.
     ],
+    "beuel": [
+        "de:05314:65116",   # Beuel Rathaus (529,530,537,640 über Kennedy-Brücke)
+        "de:05314:65101",   # Beuel Bahnhof
+    ],
     "_innenstadt": [        # Gesamtbild (kein eigener Korridor im Widget)
         "22002667",
         "22000687",
@@ -117,7 +121,7 @@ def fetch_oepnv_delays() -> dict:
         "pct_over_5min":    round(sum(1 for d in all_delays if d > 5)  / len(all_delays) * 100, 1),
     }
     # Per-Korridor (ohne _innenstadt-Pseudo-Korridor)
-    for cor in ("stadtbahn", "kaserne", "b56"):
+    for cor in ("stadtbahn", "kaserne", "b56", "beuel"):
         result[cor] = _corridor_stats(per_corridor.get(cor, []))
 
     return result

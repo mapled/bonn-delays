@@ -38,6 +38,9 @@ STOPS = [
     # Stadtbahn U-Tunnel (unterirdisch, stauunabhängig)
     ("de:05314:61101",       "stadtbahn"),            # Bonn Hbf Stadtbahn (U-Bahnsteig)
     ("de:05314:61110",       "stadtbahn"),            # Universität/Markt (U-Tunnel)
+    # Beuel / Ostseite (Kennedy-Brücke-Korridor, Nordbrücke-Ausweich)
+    ("de:05314:65116",       "beuel"),                # Beuel Rathaus (529,530,537,640)
+    ("de:05314:65101",       "beuel"),                # Beuel Bahnhof
 ]
 
 # Optionale zusätzliche Stops aus Umgebungsvariable
