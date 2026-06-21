@@ -1,38 +1,38 @@
 {
-  "updated_at": "2026-06-21T10:39:11Z",
+  "updated_at": "2026-06-21T12:27:57Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 2.46,
+    "avg_delay_min": 1.93,
     "median_delay_min": 0.0,
     "n_departures": 220,
-    "pct_on_time": 85.5,
-    "pct_over_3min": 8.6,
-    "pct_over_5min": 7.3,
+    "pct_on_time": 81.8,
+    "pct_over_3min": 9.5,
+    "pct_over_5min": 7.7,
     "stadtbahn": {
-      "avg_delay_min": 5.62,
+      "avg_delay_min": 4.05,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 82.5,
-      "pct_over_3min": 17.5
+      "pct_on_time": 77.5,
+      "pct_over_3min": 15.0
     },
     "kaserne": {
-      "avg_delay_min": 0.55,
+      "avg_delay_min": 0.6,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 82.5,
+      "pct_on_time": 85.0,
       "pct_over_3min": 2.5
     },
     "b56": {
-      "avg_delay_min": 0.4,
+      "avg_delay_min": 0.78,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 90.0,
-      "pct_over_3min": 2.5
+      "pct_on_time": 82.5,
+      "pct_over_3min": 7.5
     },
     "beuel": {
-      "avg_delay_min": 1.07,
+      "avg_delay_min": 0.7,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 90.0,
+      "pct_on_time": 87.5,
       "pct_over_3min": 7.5
     }
   },
@@ -46,16 +46,16 @@
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 8.1,
+      "current_min": 9.4,
       "avg_min": 5.6,
-      "delta_min": 2.5,
-      "status": "moderate"
+      "delta_min": 3.8,
+      "status": "slow"
     },
     "14": {
       "name": "Kölnstr. → Bertha",
-      "current_min": 6.2,
+      "current_min": 6.6,
       "avg_min": 6.8,
-      "delta_min": -0.6,
+      "delta_min": -0.2,
       "status": "fast"
     }
   },
@@ -73,24 +73,24 @@
       "n": 3780
     },
     "B56_entfaellt": {
-      "avg_delay_min": 4.92,
+      "avg_delay_min": 4.89,
       "pct_on_time": 85.6,
-      "n": 3720
+      "n": 3750
     },
     "innenstadt": {
-      "avg_delay_min": 5.69,
+      "avg_delay_min": 5.62,
       "pct_on_time": 80.9,
-      "n": 4230
+      "n": 4320
     },
     "stadtbahn": {
-      "avg_delay_min": 5.22,
-      "pct_on_time": 89.3,
-      "n": 600
+      "avg_delay_min": 4.99,
+      "pct_on_time": 88.8,
+      "n": 660
     },
     "beuel": {
-      "avg_delay_min": 0.7,
-      "pct_on_time": 93.8,
-      "n": 420
+      "avg_delay_min": 0.68,
+      "pct_on_time": 93.3,
+      "n": 480
     }
   },
   "miv_7tage": {
