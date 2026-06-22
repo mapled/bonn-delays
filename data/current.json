@@ -1,28 +1,28 @@
 {
-  "updated_at": "2026-06-21T23:21:54Z",
+  "updated_at": "2026-06-22T01:43:50Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 0.09,
+    "avg_delay_min": 0.24,
     "median_delay_min": 0.0,
     "n_departures": 220,
     "pct_on_time": 99.1,
     "pct_over_3min": 0.9,
-    "pct_over_5min": 0.0,
+    "pct_over_5min": 0.9,
     "stadtbahn": {
-      "avg_delay_min": 0.17,
+      "avg_delay_min": 0.65,
       "median_delay_min": 0.0,
       "n": 40,
       "pct_on_time": 97.5,
       "pct_over_3min": 2.5
     },
     "kaserne": {
-      "avg_delay_min": 0.1,
+      "avg_delay_min": 0.0,
       "median_delay_min": 0.0,
       "n": 40,
       "pct_on_time": 100.0,
       "pct_over_3min": 0.0
     },
     "b56": {
-      "avg_delay_min": 0.05,
+      "avg_delay_min": 0.0,
       "median_delay_min": 0.0,
       "n": 40,
       "pct_on_time": 100.0,
@@ -46,9 +46,9 @@
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 4.3,
+      "current_min": 3.9,
       "avg_min": 5.6,
-      "delta_min": -1.3,
+      "delta_min": -1.7,
       "status": "fast"
     },
     "14": {
@@ -63,34 +63,34 @@
     "available": true,
     "days_collected": 8,
     "Kasernenstr_bleibt": {
-      "avg_delay_min": 4.91,
-      "pct_on_time": 80.8,
-      "n": 3810
+      "avg_delay_min": 4.87,
+      "pct_on_time": 81.0,
+      "n": 3840
     },
     "Adenauerallee_ref": {
       "avg_delay_min": 1.45,
-      "pct_on_time": 90.5,
+      "pct_on_time": 90.6,
       "n": 3840
     },
     "B56_entfaellt": {
-      "avg_delay_min": 4.8,
-      "pct_on_time": 86.0,
-      "n": 3810
+      "avg_delay_min": 4.76,
+      "pct_on_time": 86.1,
+      "n": 3840
     },
     "innenstadt": {
-      "avg_delay_min": 5.05,
-      "pct_on_time": 82.4,
-      "n": 4950
+      "avg_delay_min": 4.96,
+      "pct_on_time": 82.7,
+      "n": 5040
     },
     "stadtbahn": {
-      "avg_delay_min": 3.66,
-      "pct_on_time": 90.6,
-      "n": 1080
+      "avg_delay_min": 3.49,
+      "pct_on_time": 91.1,
+      "n": 1140
     },
     "beuel": {
-      "avg_delay_min": 0.45,
-      "pct_on_time": 94.4,
-      "n": 900
+      "avg_delay_min": 0.42,
+      "pct_on_time": 94.8,
+      "n": 960
     }
   },
   "miv_7tage": {
