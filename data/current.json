@@ -1,39 +1,39 @@
 {
-  "updated_at": "2026-06-24T19:20:24Z",
+  "updated_at": "2026-06-24T21:00:15Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 3.4,
+    "avg_delay_min": 9.99,
     "median_delay_min": 0.0,
     "n_departures": 220,
-    "pct_on_time": 83.2,
-    "pct_over_3min": 12.3,
-    "pct_over_5min": 8.6,
+    "pct_on_time": 84.1,
+    "pct_over_3min": 10.9,
+    "pct_over_5min": 9.5,
     "stadtbahn": {
-      "avg_delay_min": 9.1,
+      "avg_delay_min": 8.1,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 67.5,
-      "pct_over_3min": 25.0
+      "pct_on_time": 87.5,
+      "pct_over_3min": 12.5
     },
     "kaserne": {
-      "avg_delay_min": 0.68,
+      "avg_delay_min": 13.18,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 85.0,
-      "pct_over_3min": 10.0
+      "pct_on_time": 80.0,
+      "pct_over_3min": 12.5
     },
     "b56": {
-      "avg_delay_min": 0.38,
+      "avg_delay_min": 19.55,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 90.0,
-      "pct_over_3min": 5.0
+      "pct_on_time": 75.0,
+      "pct_over_3min": 17.5
     },
     "beuel": {
-      "avg_delay_min": 2.2,
+      "avg_delay_min": 3.27,
       "median_delay_min": 0.0,
       "n": 40,
       "pct_on_time": 90.0,
-      "pct_over_3min": 10.0
+      "pct_over_3min": 2.5
     }
   },
   "miv": {
@@ -63,13 +63,13 @@
     "available": true,
     "days_collected": 8,
     "innenstadt": {
-      "avg_delay_min": 4.36,
-      "pct_on_time": 84.1,
+      "avg_delay_min": 4.25,
+      "pct_on_time": 84.2,
       "n": 6360
     },
     "Kasernenstr_bleibt": {
-      "avg_delay_min": 4.09,
-      "pct_on_time": 82.7,
+      "avg_delay_min": 4.01,
+      "pct_on_time": 82.8,
       "n": 4230
     },
     "Adenauerallee_ref": {
@@ -83,14 +83,14 @@
       "n": 4230
     },
     "stadtbahn": {
-      "avg_delay_min": 4.51,
-      "pct_on_time": 85.4,
-      "n": 2580
+      "avg_delay_min": 4.54,
+      "pct_on_time": 85.5,
+      "n": 2640
     },
     "beuel": {
-      "avg_delay_min": 0.88,
-      "pct_on_time": 89.6,
-      "n": 2400
+      "avg_delay_min": 0.91,
+      "pct_on_time": 89.7,
+      "n": 2460
     }
   },
   "miv_7tage": {
