@@ -1,39 +1,39 @@
 {
-  "updated_at": "2026-06-28T20:04:41Z",
+  "updated_at": "2026-06-28T21:13:08Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 0.79,
+    "avg_delay_min": 0.65,
     "median_delay_min": 0.0,
-    "n_departures": 200,
-    "pct_on_time": 83.5,
-    "pct_over_3min": 7.0,
-    "pct_over_5min": 4.5,
+    "n_departures": 220,
+    "pct_on_time": 90.5,
+    "pct_over_3min": 5.0,
+    "pct_over_5min": 1.4,
     "stadtbahn": {
-      "avg_delay_min": 1.5,
+      "avg_delay_min": 0.2,
       "median_delay_min": 0.0,
-      "n": 20,
-      "pct_on_time": 80.0,
-      "pct_over_3min": 10.0
+      "n": 40,
+      "pct_on_time": 95.0,
+      "pct_over_3min": 0.0
     },
     "kaserne": {
-      "avg_delay_min": 0.57,
+      "avg_delay_min": 0.6,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 80.0,
-      "pct_over_3min": 5.0
-    },
-    "b56": {
-      "avg_delay_min": 0.95,
-      "median_delay_min": 0.0,
-      "n": 40,
-      "pct_on_time": 75.0,
+      "pct_on_time": 82.5,
       "pct_over_3min": 10.0
     },
-    "beuel": {
-      "avg_delay_min": 0.47,
+    "b56": {
+      "avg_delay_min": 0.23,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 92.5,
-      "pct_over_3min": 5.0
+      "pct_on_time": 95.0,
+      "pct_over_3min": 2.5
+    },
+    "beuel": {
+      "avg_delay_min": 2.17,
+      "median_delay_min": 0.0,
+      "n": 40,
+      "pct_on_time": 87.5,
+      "pct_over_3min": 12.5
     }
   },
   "miv": {
@@ -46,9 +46,9 @@
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 5.6,
+      "current_min": 5.1,
       "avg_min": 5.7,
-      "delta_min": -0.1,
+      "delta_min": -0.6,
       "status": "fast"
     },
     "14": {
@@ -78,8 +78,8 @@
       "n": 4770
     },
     "B56_entfaellt": {
-      "avg_delay_min": 3.41,
-      "pct_on_time": 88.3,
+      "avg_delay_min": 3.4,
+      "pct_on_time": 88.4,
       "n": 4770
     },
     "stadtbahn": {
@@ -88,7 +88,7 @@
       "n": 4740
     },
     "beuel": {
-      "avg_delay_min": 1.25,
+      "avg_delay_min": 1.27,
       "pct_on_time": 88.1,
       "n": 4740
     }
