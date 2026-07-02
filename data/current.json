@@ -1,38 +1,38 @@
 {
-  "updated_at": "2026-07-02T22:29:56Z",
+  "updated_at": "2026-07-02T23:36:35Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 1.93,
+    "avg_delay_min": 0.77,
     "median_delay_min": 0.0,
     "n_departures": 220,
-    "pct_on_time": 95.9,
-    "pct_over_3min": 2.7,
-    "pct_over_5min": 2.7,
+    "pct_on_time": 95.0,
+    "pct_over_3min": 4.5,
+    "pct_over_5min": 4.5,
     "stadtbahn": {
-      "avg_delay_min": 1.95,
-      "median_delay_min": 0.0,
-      "n": 40,
-      "pct_on_time": 97.5,
-      "pct_over_3min": 2.5
-    },
-    "kaserne": {
-      "avg_delay_min": 4.33,
-      "median_delay_min": 0.0,
-      "n": 40,
-      "pct_on_time": 90.0,
-      "pct_over_3min": 5.0
-    },
-    "b56": {
-      "avg_delay_min": 2.08,
-      "median_delay_min": 0.0,
-      "n": 40,
-      "pct_on_time": 97.5,
-      "pct_over_3min": 2.5
-    },
-    "beuel": {
-      "avg_delay_min": 0.33,
+      "avg_delay_min": 0.72,
       "median_delay_min": 0.0,
       "n": 40,
       "pct_on_time": 95.0,
+      "pct_over_3min": 5.0
+    },
+    "kaserne": {
+      "avg_delay_min": 0.5,
+      "median_delay_min": 0.0,
+      "n": 40,
+      "pct_on_time": 95.0,
+      "pct_over_3min": 2.5
+    },
+    "b56": {
+      "avg_delay_min": 0.88,
+      "median_delay_min": 0.0,
+      "n": 40,
+      "pct_on_time": 95.0,
+      "pct_over_3min": 5.0
+    },
+    "beuel": {
+      "avg_delay_min": 0.47,
+      "median_delay_min": 0.0,
+      "n": 40,
+      "pct_on_time": 97.5,
       "pct_over_3min": 2.5
     }
   },
@@ -46,9 +46,9 @@
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 4.6,
+      "current_min": 4.4,
       "avg_min": 5.8,
-      "delta_min": -1.2,
+      "delta_min": -1.4,
       "status": "fast"
     },
     "14": {
@@ -61,7 +61,7 @@
   },
   "oepnv_7tage": {
     "available": true,
-    "days_collected": 8,
+    "days_collected": 7,
     "innenstadt": {
       "avg_delay_min": 4.2,
       "pct_on_time": 81.3,
@@ -79,7 +79,7 @@
     },
     "B56_entfaellt": {
       "avg_delay_min": 4.39,
-      "pct_on_time": 83.6,
+      "pct_on_time": 83.7,
       "n": 4980
     },
     "stadtbahn": {
