@@ -1,32 +1,32 @@
 {
-  "updated_at": "2026-07-01T23:39:58Z",
+  "updated_at": "2026-07-02T01:35:39Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 0.29,
+    "avg_delay_min": 0.0,
     "median_delay_min": 0.0,
     "n_departures": 220,
-    "pct_on_time": 94.1,
-    "pct_over_3min": 4.1,
-    "pct_over_5min": 3.2,
+    "pct_on_time": 100.0,
+    "pct_over_3min": 0.0,
+    "pct_over_5min": 0.0,
     "stadtbahn": {
-      "avg_delay_min": 0.28,
+      "avg_delay_min": 0.0,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 95.0,
-      "pct_over_3min": 5.0
+      "pct_on_time": 100.0,
+      "pct_over_3min": 0.0
     },
     "kaserne": {
-      "avg_delay_min": 0.38,
+      "avg_delay_min": 0.0,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 92.5,
-      "pct_over_3min": 5.0
+      "pct_on_time": 100.0,
+      "pct_over_3min": 0.0
     },
     "b56": {
-      "avg_delay_min": 0.53,
+      "avg_delay_min": 0.0,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 90.0,
-      "pct_over_3min": 7.5
+      "pct_on_time": 100.0,
+      "pct_over_3min": 0.0
     },
     "beuel": {
       "avg_delay_min": 0.0,
@@ -61,9 +61,9 @@
   },
   "oepnv_7tage": {
     "available": true,
-    "days_collected": 7,
+    "days_collected": 8,
     "innenstadt": {
-      "avg_delay_min": 4.3,
+      "avg_delay_min": 4.28,
       "pct_on_time": 81.8,
       "n": 7290
     },
@@ -78,12 +78,12 @@
       "n": 4860
     },
     "B56_entfaellt": {
-      "avg_delay_min": 4.21,
-      "pct_on_time": 84.8,
+      "avg_delay_min": 4.2,
+      "pct_on_time": 84.9,
       "n": 4860
     },
     "stadtbahn": {
-      "avg_delay_min": 4.48,
+      "avg_delay_min": 4.45,
       "pct_on_time": 82.2,
       "n": 4860
     },
