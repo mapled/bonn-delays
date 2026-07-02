@@ -1,39 +1,39 @@
 {
-  "updated_at": "2026-07-02T18:42:59Z",
+  "updated_at": "2026-07-02T20:06:59Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 7.78,
-    "median_delay_min": 1.0,
+    "avg_delay_min": 5.45,
+    "median_delay_min": 0.0,
     "n_departures": 220,
-    "pct_on_time": 52.3,
-    "pct_over_3min": 37.3,
-    "pct_over_5min": 35.9,
+    "pct_on_time": 72.7,
+    "pct_over_3min": 15.5,
+    "pct_over_5min": 14.1,
     "stadtbahn": {
-      "avg_delay_min": 7.8,
-      "median_delay_min": 1.0,
+      "avg_delay_min": 2.98,
+      "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 52.5,
-      "pct_over_3min": 37.5
+      "pct_on_time": 77.5,
+      "pct_over_3min": 12.5
     },
     "kaserne": {
-      "avg_delay_min": 11.3,
-      "median_delay_min": 7.5,
-      "n": 40,
-      "pct_on_time": 30.0,
-      "pct_over_3min": 55.0
-    },
-    "b56": {
-      "avg_delay_min": 6.9,
-      "median_delay_min": 0.0,
-      "n": 40,
-      "pct_on_time": 62.5,
-      "pct_over_3min": 35.0
-    },
-    "beuel": {
-      "avg_delay_min": 6.7,
-      "median_delay_min": 0.0,
+      "avg_delay_min": 8.1,
+      "median_delay_min": 1.0,
       "n": 40,
       "pct_on_time": 55.0,
-      "pct_over_3min": 32.5
+      "pct_over_3min": 25.0
+    },
+    "b56": {
+      "avg_delay_min": 3.85,
+      "median_delay_min": 0.0,
+      "n": 40,
+      "pct_on_time": 77.5,
+      "pct_over_3min": 7.5
+    },
+    "beuel": {
+      "avg_delay_min": 9.07,
+      "median_delay_min": 0.0,
+      "n": 40,
+      "pct_on_time": 72.5,
+      "pct_over_3min": 15.0
     }
   },
   "miv": {
@@ -46,9 +46,9 @@
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 7.9,
+      "current_min": 5.9,
       "avg_min": 5.8,
-      "delta_min": 2.1,
+      "delta_min": 0.1,
       "status": "moderate"
     },
     "14": {
@@ -63,34 +63,34 @@
     "available": true,
     "days_collected": 8,
     "innenstadt": {
-      "avg_delay_min": 4.24,
+      "avg_delay_min": 4.22,
       "pct_on_time": 81.1,
-      "n": 7380
+      "n": 7470
     },
     "Kasernenstr_bleibt": {
-      "avg_delay_min": 4.68,
-      "pct_on_time": 78.0,
-      "n": 4920
+      "avg_delay_min": 4.71,
+      "pct_on_time": 77.9,
+      "n": 4980
     },
     "Adenauerallee_ref": {
-      "avg_delay_min": 2.41,
-      "pct_on_time": 89.2,
-      "n": 4920
+      "avg_delay_min": 2.39,
+      "pct_on_time": 89.3,
+      "n": 4980
     },
     "B56_entfaellt": {
-      "avg_delay_min": 4.39,
-      "pct_on_time": 83.6,
-      "n": 4920
+      "avg_delay_min": 4.38,
+      "pct_on_time": 83.5,
+      "n": 4980
     },
     "stadtbahn": {
-      "avg_delay_min": 4.35,
-      "pct_on_time": 82.4,
-      "n": 4920
+      "avg_delay_min": 4.33,
+      "pct_on_time": 82.3,
+      "n": 4980
     },
     "beuel": {
-      "avg_delay_min": 1.91,
-      "pct_on_time": 85.4,
-      "n": 4920
+      "avg_delay_min": 1.96,
+      "pct_on_time": 85.3,
+      "n": 4980
     }
   },
   "miv_7tage": {
