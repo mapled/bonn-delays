@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-07-05T01:18:10Z",
+  "updated_at": "2026-07-05T05:09:56Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 0.54,
+    "avg_delay_min": 0.12,
     "median_delay_min": 0.0,
     "n_departures": 220,
-    "pct_on_time": 95.0,
-    "pct_over_3min": 2.7,
-    "pct_over_5min": 1.8,
+    "pct_on_time": 96.8,
+    "pct_over_3min": 0.5,
+    "pct_over_5min": 0.0,
     "stadtbahn": {
       "avg_delay_min": 0.0,
       "median_delay_min": 0.0,
@@ -15,47 +15,47 @@
       "pct_over_3min": 0.0
     },
     "kaserne": {
-      "avg_delay_min": 1.43,
-      "median_delay_min": 0.0,
-      "n": 40,
-      "pct_on_time": 87.5,
-      "pct_over_3min": 7.5
-    },
-    "b56": {
       "avg_delay_min": 0.25,
       "median_delay_min": 0.0,
       "n": 40,
       "pct_on_time": 92.5,
-      "pct_over_3min": 2.5
+      "pct_over_3min": 0.0
     },
-    "beuel": {
-      "avg_delay_min": 0.0,
+    "b56": {
+      "avg_delay_min": 0.05,
       "median_delay_min": 0.0,
       "n": 40,
       "pct_on_time": 100.0,
+      "pct_over_3min": 0.0
+    },
+    "beuel": {
+      "avg_delay_min": 0.05,
+      "median_delay_min": 0.0,
+      "n": 40,
+      "pct_on_time": 97.5,
       "pct_over_3min": 0.0
     }
   },
   "miv": {
     "12": {
       "name": "A59 → Kennedybrücke",
-      "current_min": 7.2,
+      "current_min": 4.2,
       "avg_min": 7.1,
-      "delta_min": 0.1,
-      "status": "moderate"
+      "delta_min": -2.9,
+      "status": "fast"
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 4.6,
+      "current_min": 4.4,
       "avg_min": 5.8,
-      "delta_min": -1.2,
+      "delta_min": -1.4,
       "status": "fast"
     },
     "14": {
       "name": "Kölnstr. → Bertha",
-      "current_min": 5.9,
+      "current_min": 3.8,
       "avg_min": 7,
-      "delta_min": -1.1,
+      "delta_min": -3.2,
       "status": "fast"
     }
   },
@@ -73,8 +73,8 @@
       "n": 5220
     },
     "Adenauerallee_ref": {
-      "avg_delay_min": 2.25,
-      "pct_on_time": 89.2,
+      "avg_delay_min": 2.24,
+      "pct_on_time": 89.3,
       "n": 5220
     },
     "B56_entfaellt": {
@@ -89,7 +89,7 @@
     },
     "beuel": {
       "avg_delay_min": 2.27,
-      "pct_on_time": 82.4,
+      "pct_on_time": 82.3,
       "n": 5220
     }
   },
