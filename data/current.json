@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-07-07T18:09:07Z",
+  "updated_at": "2026-07-07T20:09:40Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 0.06,
+    "avg_delay_min": 0.09,
     "median_delay_min": 0.0,
     "n_departures": 220,
-    "pct_on_time": 99.1,
+    "pct_on_time": 98.6,
     "pct_over_3min": 0.9,
     "pct_over_5min": 0.5,
     "stadtbahn": {
@@ -29,10 +29,10 @@
       "pct_over_3min": 0.0
     },
     "beuel": {
-      "avg_delay_min": 0.33,
+      "avg_delay_min": 0.5,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 95.0,
+      "pct_on_time": 92.5,
       "pct_over_3min": 5.0
     }
   },
@@ -46,9 +46,9 @@
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 7.6,
+      "current_min": 6.5,
       "avg_min": 5.8,
-      "delta_min": 1.8,
+      "delta_min": 0.7,
       "status": "moderate"
     },
     "14": {
@@ -63,41 +63,41 @@
     "available": true,
     "days_collected": 8,
     "innenstadt": {
-      "avg_delay_min": 2.63,
-      "pct_on_time": 81.9,
+      "avg_delay_min": 2.5,
+      "pct_on_time": 82.1,
       "n": 8010
     },
     "Kasernenstr_bleibt": {
-      "avg_delay_min": 3.36,
-      "pct_on_time": 77.1,
+      "avg_delay_min": 3.2,
+      "pct_on_time": 77.4,
       "n": 5340
     },
     "Adenauerallee_ref": {
-      "avg_delay_min": 2.21,
-      "pct_on_time": 91.0,
+      "avg_delay_min": 2.2,
+      "pct_on_time": 91.1,
       "n": 5340
     },
     "B56_entfaellt": {
-      "avg_delay_min": 2.61,
-      "pct_on_time": 83.6,
+      "avg_delay_min": 2.46,
+      "pct_on_time": 83.8,
       "n": 5340
     },
     "stadtbahn": {
-      "avg_delay_min": 2.65,
-      "pct_on_time": 84.4,
+      "avg_delay_min": 2.52,
+      "pct_on_time": 84.6,
       "n": 5340
     },
     "beuel": {
-      "avg_delay_min": 1.95,
-      "pct_on_time": 83.2,
+      "avg_delay_min": 1.93,
+      "pct_on_time": 83.3,
       "n": 5340
     }
   },
   "miv_7tage": {
     "available": true,
-    "days_collected": 8,
-    "avg_current_min": 11.2,
-    "avg_delta_min": 4.18,
-    "n": 50
+    "days_collected": 7,
+    "avg_current_min": 11.3,
+    "avg_delta_min": 4.29,
+    "n": 49
   }
 }
