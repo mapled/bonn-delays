@@ -1,35 +1,35 @@
 {
-  "updated_at": "2026-07-10T23:14:57Z",
+  "updated_at": "2026-07-11T00:09:08Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 0.37,
+    "avg_delay_min": 0.49,
     "median_delay_min": 0.0,
     "n_departures": 220,
-    "pct_on_time": 97.3,
-    "pct_over_3min": 1.8,
+    "pct_on_time": 95.9,
+    "pct_over_3min": 0.9,
     "pct_over_5min": 0.9,
     "stadtbahn": {
-      "avg_delay_min": 0.8,
+      "avg_delay_min": 1.18,
       "median_delay_min": 0.0,
       "n": 40,
       "pct_on_time": 97.5,
       "pct_over_3min": 2.5
     },
     "kaserne": {
-      "avg_delay_min": 0.2,
+      "avg_delay_min": 0.15,
+      "median_delay_min": 0.0,
+      "n": 40,
+      "pct_on_time": 92.5,
+      "pct_over_3min": 0.0
+    },
+    "b56": {
+      "avg_delay_min": 0.1,
       "median_delay_min": 0.0,
       "n": 40,
       "pct_on_time": 95.0,
-      "pct_over_3min": 2.5
-    },
-    "b56": {
-      "avg_delay_min": 0.0,
-      "median_delay_min": 0.0,
-      "n": 40,
-      "pct_on_time": 100.0,
       "pct_over_3min": 0.0
     },
     "beuel": {
-      "avg_delay_min": 0.05,
+      "avg_delay_min": 0.0,
       "median_delay_min": 0.0,
       "n": 40,
       "pct_on_time": 100.0,
@@ -46,9 +46,9 @@
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 5.1,
+      "current_min": 4.9,
       "avg_min": 5.8,
-      "delta_min": -0.7,
+      "delta_min": -0.9,
       "status": "fast"
     },
     "14": {
