@@ -1,61 +1,61 @@
 {
-  "updated_at": "2026-07-13T13:04:27Z",
+  "updated_at": "2026-07-13T15:47:05Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 4.86,
+    "avg_delay_min": 3.69,
     "median_delay_min": 0.0,
     "n_departures": 220,
-    "pct_on_time": 60.5,
-    "pct_over_3min": 33.6,
-    "pct_over_5min": 26.4,
+    "pct_on_time": 70.5,
+    "pct_over_3min": 20.9,
+    "pct_over_5min": 15.9,
     "stadtbahn": {
-      "avg_delay_min": 6.17,
+      "avg_delay_min": 6.6,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 60.0,
-      "pct_over_3min": 37.5
-    },
-    "kaserne": {
-      "avg_delay_min": 5.7,
-      "median_delay_min": 2.5,
-      "n": 40,
-      "pct_on_time": 45.0,
-      "pct_over_3min": 45.0
-    },
-    "b56": {
-      "avg_delay_min": 4.47,
-      "median_delay_min": 0.0,
-      "n": 40,
-      "pct_on_time": 67.5,
+      "pct_on_time": 70.0,
       "pct_over_3min": 27.5
     },
-    "beuel": {
-      "avg_delay_min": 1.32,
+    "kaserne": {
+      "avg_delay_min": 2.45,
+      "median_delay_min": 0.5,
+      "n": 40,
+      "pct_on_time": 62.5,
+      "pct_over_3min": 20.0
+    },
+    "b56": {
+      "avg_delay_min": 1.77,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 72.5,
-      "pct_over_3min": 20.0
+      "pct_on_time": 75.0,
+      "pct_over_3min": 15.0
+    },
+    "beuel": {
+      "avg_delay_min": 1.4,
+      "median_delay_min": 0.0,
+      "n": 40,
+      "pct_on_time": 75.0,
+      "pct_over_3min": 15.0
     }
   },
   "miv": {
     "12": {
       "name": "A59 → Kennedybrücke",
-      "current_min": 16,
+      "current_min": 14.2,
       "avg_min": 7.3,
-      "delta_min": 8.7,
+      "delta_min": 6.9,
       "status": "slow"
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 11,
+      "current_min": 10.3,
       "avg_min": 5.9,
-      "delta_min": 5.1,
+      "delta_min": 4.4,
       "status": "slow"
     },
     "14": {
       "name": "Kölnstr. → Bertha",
-      "current_min": 14.7,
+      "current_min": 12.7,
       "avg_min": 7.1,
-      "delta_min": 7.6,
+      "delta_min": 5.6,
       "status": "slow"
     }
   },
@@ -64,40 +64,40 @@
     "days_collected": 8,
     "innenstadt": {
       "avg_delay_min": 2.85,
-      "pct_on_time": 83.3,
+      "pct_on_time": 83.4,
       "n": 8640
     },
     "Kasernenstr_bleibt": {
-      "avg_delay_min": 2.94,
-      "pct_on_time": 80.7,
+      "avg_delay_min": 2.87,
+      "pct_on_time": 80.9,
       "n": 5760
     },
     "Adenauerallee_ref": {
-      "avg_delay_min": 1.25,
-      "pct_on_time": 93.5,
+      "avg_delay_min": 1.26,
+      "pct_on_time": 93.4,
       "n": 5760
     },
     "B56_entfaellt": {
-      "avg_delay_min": 2.14,
-      "pct_on_time": 86.7,
+      "avg_delay_min": 2.12,
+      "pct_on_time": 86.9,
       "n": 5760
     },
     "stadtbahn": {
-      "avg_delay_min": 2.71,
+      "avg_delay_min": 2.72,
       "pct_on_time": 86.5,
       "n": 5730
     },
     "beuel": {
       "avg_delay_min": 1.39,
-      "pct_on_time": 88.2,
+      "pct_on_time": 88.3,
       "n": 5760
     }
   },
   "miv_7tage": {
     "available": true,
     "days_collected": 8,
-    "avg_current_min": 11.0,
-    "avg_delta_min": 3.85,
+    "avg_current_min": 11.1,
+    "avg_delta_min": 3.87,
     "n": 53
   }
 }
