@@ -1,31 +1,31 @@
 {
-  "updated_at": "2026-07-13T23:09:05Z",
+  "updated_at": "2026-07-14T00:02:30Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 1.21,
+    "avg_delay_min": 0.02,
     "median_delay_min": 0.0,
     "n_departures": 220,
-    "pct_on_time": 95.5,
-    "pct_over_3min": 1.8,
-    "pct_over_5min": 0.9,
+    "pct_on_time": 99.1,
+    "pct_over_3min": 0.0,
+    "pct_over_5min": 0.0,
     "stadtbahn": {
-      "avg_delay_min": 3.12,
+      "avg_delay_min": 0.0,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 95.0,
-      "pct_over_3min": 2.5
+      "pct_on_time": 100.0,
+      "pct_over_3min": 0.0
     },
     "kaserne": {
-      "avg_delay_min": 0.3,
+      "avg_delay_min": 0.05,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 90.0,
-      "pct_over_3min": 5.0
+      "pct_on_time": 97.5,
+      "pct_over_3min": 0.0
     },
     "b56": {
-      "avg_delay_min": 0.1,
+      "avg_delay_min": 0.05,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 95.0,
+      "pct_on_time": 97.5,
       "pct_over_3min": 0.0
     },
     "beuel": {
@@ -68,8 +68,8 @@
       "n": 8730
     },
     "Kasernenstr_bleibt": {
-      "avg_delay_min": 2.79,
-      "pct_on_time": 81.1,
+      "avg_delay_min": 2.78,
+      "pct_on_time": 81.2,
       "n": 5820
     },
     "Adenauerallee_ref": {
@@ -78,12 +78,12 @@
       "n": 5820
     },
     "B56_entfaellt": {
-      "avg_delay_min": 2.03,
-      "pct_on_time": 87.2,
+      "avg_delay_min": 2.02,
+      "pct_on_time": 87.3,
       "n": 5820
     },
     "stadtbahn": {
-      "avg_delay_min": 2.75,
+      "avg_delay_min": 2.74,
       "pct_on_time": 86.4,
       "n": 5790
     },
