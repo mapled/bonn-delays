@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-07-14T00:02:30Z",
+  "updated_at": "2026-07-14T02:56:00Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 0.02,
+    "avg_delay_min": 0.11,
     "median_delay_min": 0.0,
     "n_departures": 220,
-    "pct_on_time": 99.1,
-    "pct_over_3min": 0.0,
-    "pct_over_5min": 0.0,
+    "pct_on_time": 97.3,
+    "pct_over_3min": 0.5,
+    "pct_over_5min": 0.5,
     "stadtbahn": {
       "avg_delay_min": 0.0,
       "median_delay_min": 0.0,
@@ -15,17 +15,17 @@
       "pct_over_3min": 0.0
     },
     "kaserne": {
-      "avg_delay_min": 0.05,
+      "avg_delay_min": 0.23,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 97.5,
+      "pct_on_time": 92.5,
       "pct_over_3min": 0.0
     },
     "b56": {
-      "avg_delay_min": 0.05,
+      "avg_delay_min": 0.1,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 97.5,
+      "pct_on_time": 100.0,
       "pct_over_3min": 0.0
     },
     "beuel": {
@@ -46,9 +46,9 @@
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 4.5,
+      "current_min": 4.9,
       "avg_min": 5.9,
-      "delta_min": -1.4,
+      "delta_min": -1.0,
       "status": "fast"
     },
     "14": {
@@ -69,7 +69,7 @@
     },
     "Kasernenstr_bleibt": {
       "avg_delay_min": 2.78,
-      "pct_on_time": 81.2,
+      "pct_on_time": 81.1,
       "n": 5820
     },
     "Adenauerallee_ref": {
