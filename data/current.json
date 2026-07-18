@@ -1,38 +1,38 @@
 {
-  "updated_at": "2026-07-18T22:57:00Z",
+  "updated_at": "2026-07-18T23:43:30Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 0.77,
+    "avg_delay_min": 0.34,
     "median_delay_min": 0.0,
     "n_departures": 220,
-    "pct_on_time": 92.7,
+    "pct_on_time": 92.3,
     "pct_over_3min": 3.2,
-    "pct_over_5min": 1.8,
+    "pct_over_5min": 1.4,
     "stadtbahn": {
-      "avg_delay_min": 2.6,
+      "avg_delay_min": 0.53,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 90.0,
-      "pct_over_3min": 7.5
+      "pct_on_time": 95.0,
+      "pct_over_3min": 5.0
     },
     "kaserne": {
+      "avg_delay_min": 0.45,
+      "median_delay_min": 0.0,
+      "n": 40,
+      "pct_on_time": 85.0,
+      "pct_over_3min": 5.0
+    },
+    "b56": {
       "avg_delay_min": 0.35,
       "median_delay_min": 0.0,
       "n": 40,
       "pct_on_time": 87.5,
       "pct_over_3min": 2.5
     },
-    "b56": {
-      "avg_delay_min": 0.1,
-      "median_delay_min": 0.0,
-      "n": 40,
-      "pct_on_time": 95.0,
-      "pct_over_3min": 0.0
-    },
     "beuel": {
-      "avg_delay_min": 0.0,
+      "avg_delay_min": 0.05,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 100.0,
+      "pct_on_time": 97.5,
       "pct_over_3min": 0.0
     }
   },
@@ -46,9 +46,9 @@
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 5,
+      "current_min": 4.6,
       "avg_min": 5.9,
-      "delta_min": -0.9,
+      "delta_min": -1.3,
       "status": "fast"
     },
     "14": {
@@ -68,7 +68,7 @@
       "n": 10500
     },
     "Kasernenstr_bleibt": {
-      "avg_delay_min": 2.88,
+      "avg_delay_min": 2.87,
       "pct_on_time": 78.6,
       "n": 7020
     },
@@ -79,7 +79,7 @@
     },
     "B56_entfaellt": {
       "avg_delay_min": 1.81,
-      "pct_on_time": 86.8,
+      "pct_on_time": 86.7,
       "n": 7020
     },
     "stadtbahn": {
@@ -88,7 +88,7 @@
       "n": 7020
     },
     "beuel": {
-      "avg_delay_min": 1.02,
+      "avg_delay_min": 1.01,
       "pct_on_time": 88.3,
       "n": 6990
     }
