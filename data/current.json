@@ -1,54 +1,54 @@
 {
-  "updated_at": "2026-07-19T17:09:09Z",
+  "updated_at": "2026-07-19T18:04:56Z",
   "oepnv_aktuell": {
-    "avg_delay_min": 1.44,
+    "avg_delay_min": 0.85,
     "median_delay_min": 0.0,
     "n_departures": 220,
-    "pct_on_time": 82.3,
-    "pct_over_3min": 8.2,
-    "pct_over_5min": 5.0,
+    "pct_on_time": 89.5,
+    "pct_over_3min": 5.0,
+    "pct_over_5min": 2.3,
     "stadtbahn": {
-      "avg_delay_min": 2.85,
+      "avg_delay_min": 1.23,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 80.0,
-      "pct_over_3min": 10.0
+      "pct_on_time": 92.5,
+      "pct_over_3min": 5.0
     },
     "kaserne": {
-      "avg_delay_min": 0.78,
+      "avg_delay_min": 0.47,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 82.5,
-      "pct_over_3min": 7.5
-    },
-    "b56": {
-      "avg_delay_min": 0.57,
-      "median_delay_min": 0.0,
-      "n": 40,
-      "pct_on_time": 80.0,
+      "pct_on_time": 87.5,
       "pct_over_3min": 2.5
     },
-    "beuel": {
-      "avg_delay_min": 0.4,
+    "b56": {
+      "avg_delay_min": 0.28,
       "median_delay_min": 0.0,
       "n": 40,
-      "pct_on_time": 90.0,
-      "pct_over_3min": 7.5
+      "pct_on_time": 92.5,
+      "pct_over_3min": 0.0
+    },
+    "beuel": {
+      "avg_delay_min": 0.28,
+      "median_delay_min": 0.0,
+      "n": 40,
+      "pct_on_time": 95.0,
+      "pct_over_3min": 5.0
     }
   },
   "miv": {
     "12": {
       "name": "A59 → Kennedybrücke",
-      "current_min": 6.3,
+      "current_min": 6.2,
       "avg_min": 7.4,
-      "delta_min": -1.1,
+      "delta_min": -1.2,
       "status": "fast"
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 6.9,
+      "current_min": 7.4,
       "avg_min": 5.9,
-      "delta_min": 1.0,
+      "delta_min": 1.5,
       "status": "moderate"
     },
     "14": {
@@ -83,7 +83,7 @@
       "n": 7020
     },
     "stadtbahn": {
-      "avg_delay_min": 2.78,
+      "avg_delay_min": 2.77,
       "pct_on_time": 82.7,
       "n": 7020
     },
@@ -97,7 +97,7 @@
     "available": true,
     "days_collected": 8,
     "avg_current_min": 10.7,
-    "avg_delta_min": 3.34,
+    "avg_delta_min": 3.32,
     "n": 71
   }
 }
