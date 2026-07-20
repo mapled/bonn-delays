@@ -82,15 +82,31 @@ def _fetch_stop_delays(stop_id: str) -> list[float]:
     return delays
 
 
-def _corridor_stats(delays: list[float]) -> dict:
+# EFA liefert vereinzelt Artefakte (Zusatzfahrten, Soll-Zeiten aus der Vergangenheit)
+# mit bis zu 417 Min. Sie zerstoeren jeden Mittelwert. Werte ausserhalb dieses
+# Fensters werden als Artefakt verworfen. Begruendung/Beleg: Analyse 2026-07-20.
+ARTIFACT_MIN = -5.0
+ARTIFACT_MAX = 60.0
+
+
+def _delay_stats(delays: list[float]) -> dict:
+    """Robuste Verspätungs-Kennzahlen inkl. Artefakt-Filter und bedingter
+    Verspätung (wie hoch, WENN verspätet)."""
+    delays = [d for d in delays if ARTIFACT_MIN <= d <= ARTIFACT_MAX]
     if not delays:
-        return {"error": "no data"}
+        return {"n": 0, "error": "no data"}
+    late = [d for d in delays if d > 1]
+    n = len(delays)
     return {
-        "avg_delay_min":   round(statistics.mean(delays), 2),
+        "n":                len(delays),
         "median_delay_min": round(statistics.median(delays), 1),
-        "n":               len(delays),
-        "pct_on_time":     round(sum(1 for d in delays if d <= 1) / len(delays) * 100, 1),
-        "pct_over_3min":   round(sum(1 for d in delays if d > 3)  / len(delays) * 100, 1),
+        "avg_delay_min":    round(statistics.mean(delays), 2),
+        "pct_on_time":      round(sum(1 for d in delays if d <= 1) / n * 100, 1),
+        "pct_over_3min":    round(sum(1 for d in delays if d > 3) / n * 100, 1),
+        "pct_over_5min":    round(sum(1 for d in delays if d > 5) / n * 100, 1),
+        # Verspätung, WENN verspätet (>1 Min) — robuster Median + Mittel:
+        "delay_when_late_median": round(statistics.median(late), 1) if late else 0,
+        "delay_when_late_avg":    round(statistics.mean(late), 1)   if late else 0,
     }
 
 
@@ -112,17 +128,11 @@ def fetch_oepnv_delays() -> dict:
     if not all_delays:
         return {"error": "no data"}
 
-    result = {
-        "avg_delay_min":    round(statistics.mean(all_delays), 2),
-        "median_delay_min": round(statistics.median(all_delays), 1),
-        "n_departures":     len(all_delays),
-        "pct_on_time":      round(sum(1 for d in all_delays if d <= 1) / len(all_delays) * 100, 1),
-        "pct_over_3min":    round(sum(1 for d in all_delays if d > 3)  / len(all_delays) * 100, 1),
-        "pct_over_5min":    round(sum(1 for d in all_delays if d > 5)  / len(all_delays) * 100, 1),
-    }
+    result = _delay_stats(all_delays)
+    result["n_departures"] = result.pop("n")   # I6-Schema-Kompatibilität
     # Per-Korridor (ohne _innenstadt-Pseudo-Korridor)
     for cor in ("stadtbahn", "kaserne", "b56", "beuel"):
-        result[cor] = _corridor_stats(per_corridor.get(cor, []))
+        result[cor] = _delay_stats(per_corridor.get(cor, []))
 
     return result
 
@@ -183,6 +193,8 @@ def fetch_miv() -> dict:
 def compute_7day_avg() -> dict:
     cutoff = datetime.now(timezone.utc) - timedelta(days=7)
     delays_by_corridor: dict[str, list[float]] = {}
+    all_delays: list[float] = []
+    by_hour: dict[int, list[float]] = {}
     n_days: set[str] = set()
 
     for csv_path in sorted(DATA_DIR.glob("delays_*.csv")):
@@ -193,10 +205,14 @@ def compute_7day_avg() -> dict:
                         ts = datetime.fromisoformat(row["collected_at"].replace("Z", "+00:00"))
                         if ts < cutoff:
                             continue
-                        n_days.add(ts.date().isoformat())
                         d = float(row["delay_min"])
+                        if not (ARTIFACT_MIN <= d <= ARTIFACT_MAX):
+                            continue   # Artefakt verwerfen
+                        n_days.add(ts.date().isoformat())
                         cor = row["corridor"]
                         delays_by_corridor.setdefault(cor, []).append(d)
+                        all_delays.append(d)
+                        by_hour.setdefault(ts.hour, []).append(d)
                     except Exception:
                         pass
         except Exception:
@@ -208,12 +224,52 @@ def compute_7day_avg() -> dict:
 
     result = {"available": True, "days_collected": len(n_days)}
     for cor, vals in delays_by_corridor.items():
-        result[cor] = {
-            "avg_delay_min": round(statistics.mean(vals), 2),
-            "pct_on_time":   round(sum(1 for d in vals if d <= 1) / len(vals) * 100, 1),
-            "n":             len(vals),
+        result[cor] = _delay_stats(vals)
+    result["gesamt"] = _delay_stats(all_delays)
+
+    # Tageszeit-Kurve (aggregiert über alle Korridore): pünktlich-Anteil und
+    # Verspätung-wenn-verspätet je Stunde. Antwort auf "wann lohnt der ÖPNV".
+    byhour: dict[str, dict] = {}
+    for h in sorted(by_hour):
+        v = by_hour[h]
+        late = [x for x in v if x > 1]
+        byhour[str(h)] = {
+            "n":                   len(v),
+            "pct_on_time":         round(sum(1 for x in v if x <= 1) / len(v) * 100),
+            "delay_when_late_avg": round(statistics.mean(late), 1) if late else 0,
         }
+    result["byhour"] = byhour
     return result
+
+
+# ── ÖPNV: gleitendes Kurzfenster (letzte N Stunden) ─────────────────────────
+def compute_recent_oepnv(hours: int = 2) -> dict:
+    """Verspätungslage der letzten N Stunden — reflektiert die AKTUELLE Situation
+    (Berufsverkehr vs. Nacht), im Gegensatz zum geglätteten 7-Tage-Schnitt.
+    Genug Messzeilen (~24 Läufe) für eine stabile 'wenn verspätet'-Kennzahl."""
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
+    delays: list[float] = []
+    for csv_path in sorted(DATA_DIR.glob("delays_*.csv")):
+        try:
+            with open(csv_path, encoding="utf-8") as f:
+                for row in csv.DictReader(f):
+                    try:
+                        ts = datetime.fromisoformat(row["collected_at"].replace("Z", "+00:00"))
+                        if ts < cutoff:
+                            continue
+                        d = float(row["delay_min"])
+                        if ARTIFACT_MIN <= d <= ARTIFACT_MAX:
+                            delays.append(d)
+                    except Exception:
+                        pass
+        except Exception:
+            pass
+    if not delays:
+        return {"available": False, "window_hours": hours, "n": 0}
+    s = _delay_stats(delays)
+    s["available"] = True
+    s["window_hours"] = hours
+    return s
 
 
 # ── MIV 7-Tage-Schnitt aus CSV ───────────────────────────────────────────────
@@ -268,11 +324,13 @@ def main():
     miv      = fetch_miv()
     archive_miv(miv, now)
     avg_7d   = compute_7day_avg()
+    oepnv_2h = compute_recent_oepnv(2)
     miv_7d   = compute_miv_7day_avg()
 
     out = {
         "updated_at": now,
         "oepnv_aktuell": oepnv,
+        "oepnv_2h": oepnv_2h,
         "miv": miv,
         "oepnv_7tage": avg_7d,
         "miv_7tage": miv_7d,
