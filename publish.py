@@ -249,6 +249,8 @@ def compute_recent_oepnv(hours: int = 2) -> dict:
     Genug Messzeilen (~24 Läufe) für eine stabile 'wenn verspätet'-Kennzahl."""
     cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
     delays: list[float] = []
+    bus: list[float] = []
+    bahn: list[float] = []
     for csv_path in sorted(DATA_DIR.glob("delays_*.csv")):
         try:
             with open(csv_path, encoding="utf-8") as f:
@@ -258,17 +260,21 @@ def compute_recent_oepnv(hours: int = 2) -> dict:
                         if ts < cutoff:
                             continue
                         d = float(row["delay_min"])
-                        if ARTIFACT_MIN <= d <= ARTIFACT_MAX:
-                            delays.append(d)
+                        if not (ARTIFACT_MIN <= d <= ARTIFACT_MAX):
+                            continue
+                        delays.append(d)
+                        (bahn if row["corridor"] == "stadtbahn" else bus).append(d)
                     except Exception:
                         pass
         except Exception:
             pass
     if not delays:
         return {"available": False, "window_hours": hours, "n": 0}
-    s = _delay_stats(delays)
+    s = _delay_stats(delays)            # Aggregat bleibt top-level (I6-kompatibel)
     s["available"] = True
     s["window_hours"] = hours
+    s["bus"]  = _delay_stats(bus)       # Bus = alle Korridore außer Stadtbahn
+    s["bahn"] = _delay_stats(bahn)      # Bahn = Stadtbahn (U-Tunnel)
     return s
 
 
