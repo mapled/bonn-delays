@@ -1,28 +1,28 @@
 {
-  "updated_at": "2026-07-27T22:35:56Z",
+  "updated_at": "2026-07-27T23:39:16Z",
   "oepnv_aktuell": {
     "median_delay_min": 0.0,
-    "avg_delay_min": 0.05,
-    "pct_on_time": 98.6,
-    "pct_over_3min": 0.0,
+    "avg_delay_min": 0.18,
+    "pct_on_time": 95.0,
+    "pct_over_3min": 2.7,
     "pct_over_5min": 0.0,
-    "delay_when_late_median": 2.0,
-    "delay_when_late_avg": 2.3,
+    "delay_when_late_median": 4.0,
+    "delay_when_late_avg": 3.3,
     "n_departures": 220,
     "stadtbahn": {
       "n": 40,
       "median_delay_min": 0.0,
-      "avg_delay_min": 0.0,
-      "pct_on_time": 100.0,
-      "pct_over_3min": 0.0,
+      "avg_delay_min": 0.38,
+      "pct_on_time": 90.0,
+      "pct_over_3min": 7.5,
       "pct_over_5min": 0.0,
-      "delay_when_late_median": 0,
-      "delay_when_late_avg": 0
+      "delay_when_late_median": 4.0,
+      "delay_when_late_avg": 3.8
     },
     "kaserne": {
       "n": 40,
       "median_delay_min": 0.0,
-      "avg_delay_min": 0.1,
+      "avg_delay_min": 0.07,
       "pct_on_time": 97.5,
       "pct_over_3min": 0.0,
       "pct_over_5min": 0.0,
@@ -53,33 +53,33 @@
   "oepnv_2h": {
     "n": 780,
     "median_delay_min": 0.0,
-    "avg_delay_min": 0.21,
-    "pct_on_time": 95.4,
-    "pct_over_3min": 1.9,
-    "pct_over_5min": 0.8,
+    "avg_delay_min": 0.09,
+    "pct_on_time": 97.4,
+    "pct_over_3min": 0.9,
+    "pct_over_5min": 0.0,
     "delay_when_late_median": 3.0,
-    "delay_when_late_avg": 4.0,
+    "delay_when_late_avg": 3.0,
     "available": true,
     "window_hours": 2,
     "bus": {
       "n": 660,
       "median_delay_min": 0.0,
-      "avg_delay_min": 0.19,
-      "pct_on_time": 95.5,
-      "pct_over_3min": 1.7,
-      "pct_over_5min": 0.6,
+      "avg_delay_min": 0.08,
+      "pct_on_time": 97.6,
+      "pct_over_3min": 0.6,
+      "pct_over_5min": 0.0,
       "delay_when_late_median": 2.5,
-      "delay_when_late_avg": 3.6
+      "delay_when_late_avg": 2.8
     },
     "bahn": {
       "n": 120,
       "median_delay_min": 0.0,
-      "avg_delay_min": 0.32,
-      "pct_on_time": 95.0,
-      "pct_over_3min": 3.3,
-      "pct_over_5min": 1.7,
+      "avg_delay_min": 0.13,
+      "pct_on_time": 96.7,
+      "pct_over_3min": 2.5,
+      "pct_over_5min": 0.0,
       "delay_when_late_median": 4.0,
-      "delay_when_late_avg": 5.8
+      "delay_when_late_avg": 3.8
     }
   },
   "miv": {
@@ -92,9 +92,9 @@
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 4.5,
+      "current_min": 4.2,
       "avg_min": 5.9,
-      "delta_min": -1.4,
+      "delta_min": -1.7,
       "status": "fast"
     },
     "14": {
@@ -107,16 +107,16 @@
   },
   "oepnv_7tage": {
     "available": true,
-    "days_collected": 8,
+    "days_collected": 7,
     "innenstadt": {
       "n": 9056,
       "median_delay_min": 0.0,
-      "avg_delay_min": 1.15,
+      "avg_delay_min": 1.16,
       "pct_on_time": 86.6,
       "pct_over_3min": 7.6,
       "pct_over_5min": 5.4,
       "delay_when_late_median": 4.0,
-      "delay_when_late_avg": 8.3
+      "delay_when_late_avg": 8.2
     },
     "Kasernenstr_bleibt": {
       "n": 6228,
@@ -133,10 +133,10 @@
       "median_delay_min": 0.0,
       "avg_delay_min": 0.84,
       "pct_on_time": 94.2,
-      "pct_over_3min": 4.3,
+      "pct_over_3min": 4.4,
       "pct_over_5min": 3.0,
-      "delay_when_late_median": 7.0,
-      "delay_when_late_avg": 14.1
+      "delay_when_late_median": 6.0,
+      "delay_when_late_avg": 14.0
     },
     "B56_entfaellt": {
       "n": 6262,
@@ -153,10 +153,10 @@
       "median_delay_min": 0.0,
       "avg_delay_min": 1.25,
       "pct_on_time": 90.0,
-      "pct_over_3min": 7.2,
+      "pct_over_3min": 7.3,
       "pct_over_5min": 5.5,
       "delay_when_late_median": 6.0,
-      "delay_when_late_avg": 12.2
+      "delay_when_late_avg": 12.1
     },
     "beuel": {
       "n": 6294,
@@ -287,7 +287,7 @@
       "23": {
         "n": 2730,
         "pct_on_time": 97,
-        "delay_when_late_avg": 6.0
+        "delay_when_late_avg": 5.6
       }
     }
   },
