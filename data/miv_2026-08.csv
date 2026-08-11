@@ -680,3 +680,6 @@ collected_at,route_id,route_name,current_min,avg_min,delta_min,status
 2026-08-11T21:37:40Z,12,A59 → Kennedybrücke,6,7.6,-1.6,fast
 2026-08-11T21:37:40Z,149,Kennedybrücke → A59,5,6,-1,fast
 2026-08-11T21:37:40Z,14,Kölnstr. → Bertha,4.8,7.1,-2.3,fast
+2026-08-11T22:22:12Z,12,A59 → Kennedybrücke,6,7.6,-1.6,fast
+2026-08-11T22:22:12Z,149,Kennedybrücke → A59,4.3,6,-1.7,fast
+2026-08-11T22:22:12Z,14,Kölnstr. → Bertha,4.8,7.1,-2.3,fast
