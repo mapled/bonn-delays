@@ -8,5 +8,8 @@ Datensammlung zur Nordbrücken-Sperrung Bonn (seit 03.06.2026) für
 - Workflow „GTFS Collect" (Cron) committet Messwerte auf den Branch `data`
 
 Hinweis: GitHub deaktiviert geplante Workflows nach ~60 Tagen ohne Commit auf
-den Default-Branch. Gelegentliche Commits (z. B. an dieser Datei) halten den
-Cron am Leben.
+den Default-Branch. Der Workflow „Keepalive" committet deshalb monatlich den
+Zeitstempel unten und haelt so den Cron am Leben.
+
+Letzter automatischer Keepalive: 2026-08-18
+
