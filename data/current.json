@@ -1,49 +1,49 @@
 {
-  "updated_at": "2026-08-23T20:14:48Z",
+  "updated_at": "2026-08-23T20:38:44Z",
   "oepnv_aktuell": {
     "median_delay_min": 0.0,
-    "avg_delay_min": 0.55,
-    "pct_on_time": 85.9,
-    "pct_over_3min": 7.7,
-    "pct_over_5min": 1.8,
-    "delay_when_late_median": 4.0,
-    "delay_when_late_avg": 3.5,
+    "avg_delay_min": 0.47,
+    "pct_on_time": 90.9,
+    "pct_over_3min": 2.7,
+    "pct_over_5min": 1.4,
+    "delay_when_late_median": 2.0,
+    "delay_when_late_avg": 4.3,
     "n_departures": 220,
     "stadtbahn": {
       "n": 40,
       "median_delay_min": 0.0,
-      "avg_delay_min": 0.42,
-      "pct_on_time": 87.5,
-      "pct_over_3min": 7.5,
+      "avg_delay_min": 0.25,
+      "pct_on_time": 92.5,
+      "pct_over_3min": 2.5,
       "pct_over_5min": 0.0,
-      "delay_when_late_median": 4.0,
-      "delay_when_late_avg": 3.2
+      "delay_when_late_median": 3.0,
+      "delay_when_late_avg": 3.0
     },
     "kaserne": {
       "n": 40,
       "median_delay_min": 0.0,
-      "avg_delay_min": 0.75,
-      "pct_on_time": 85.0,
-      "pct_over_3min": 12.5,
-      "pct_over_5min": 5.0,
-      "delay_when_late_median": 4.5,
-      "delay_when_late_avg": 4.5
+      "avg_delay_min": 0.82,
+      "pct_on_time": 87.5,
+      "pct_over_3min": 2.5,
+      "pct_over_5min": 2.5,
+      "delay_when_late_median": 2.0,
+      "delay_when_late_avg": 5.4
     },
     "b56": {
       "n": 40,
       "median_delay_min": 0.0,
-      "avg_delay_min": 0.62,
-      "pct_on_time": 82.5,
-      "pct_over_3min": 7.5,
+      "avg_delay_min": 0.3,
+      "pct_on_time": 97.5,
+      "pct_over_3min": 2.5,
       "pct_over_5min": 2.5,
-      "delay_when_late_median": 3.0,
-      "delay_when_late_avg": 3.4
+      "delay_when_late_median": 7.0,
+      "delay_when_late_avg": 7.0
     },
     "beuel": {
       "n": 40,
       "median_delay_min": 0.0,
-      "avg_delay_min": 0.3,
-      "pct_on_time": 92.5,
+      "avg_delay_min": 0.2,
+      "pct_on_time": 95.0,
       "pct_over_3min": 2.5,
       "pct_over_5min": 0.0,
       "delay_when_late_median": 3.0,
@@ -51,35 +51,35 @@
     }
   },
   "oepnv_2h": {
-    "n": 2727,
+    "n": 2729,
     "median_delay_min": 0.0,
-    "avg_delay_min": 0.31,
-    "pct_on_time": 92.6,
-    "pct_over_3min": 2.8,
+    "avg_delay_min": 0.29,
+    "pct_on_time": 92.9,
+    "pct_over_3min": 2.6,
     "pct_over_5min": 0.7,
     "delay_when_late_median": 3.0,
-    "delay_when_late_avg": 3.5,
+    "delay_when_late_avg": 3.4,
     "available": true,
     "window_hours": 2,
     "bus": {
-      "n": 2307,
+      "n": 2309,
       "median_delay_min": 0.0,
       "avg_delay_min": 0.29,
-      "pct_on_time": 92.8,
-      "pct_over_3min": 2.6,
-      "pct_over_5min": 0.6,
-      "delay_when_late_median": 3.0,
-      "delay_when_late_avg": 3.3
+      "pct_on_time": 93.0,
+      "pct_over_3min": 2.5,
+      "pct_over_5min": 0.7,
+      "delay_when_late_median": 2.5,
+      "delay_when_late_avg": 3.4
     },
     "bahn": {
       "n": 420,
       "median_delay_min": 0.0,
-      "avg_delay_min": 0.38,
-      "pct_on_time": 91.9,
-      "pct_over_3min": 3.8,
-      "pct_over_5min": 1.2,
+      "avg_delay_min": 0.31,
+      "pct_on_time": 92.1,
+      "pct_over_3min": 3.3,
+      "pct_over_5min": 0.7,
       "delay_when_late_median": 3.0,
-      "delay_when_late_avg": 4.2
+      "delay_when_late_avg": 3.6
     }
   },
   "miv": {
@@ -92,9 +92,9 @@
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 5.3,
+      "current_min": 5.2,
       "avg_min": 6,
-      "delta_min": -0.7,
+      "delta_min": -0.8,
       "status": "fast"
     },
     "14": {
@@ -114,7 +114,7 @@
       "avg_delay_min": 0.93,
       "pct_on_time": 88.7,
       "pct_over_3min": 5.9,
-      "pct_over_5min": 3.9,
+      "pct_over_5min": 3.8,
       "delay_when_late_median": 4.0,
       "delay_when_late_avg": 7.7
     },
@@ -282,7 +282,7 @@
       "20": {
         "n": 8089,
         "pct_on_time": 91,
-        "delay_when_late_avg": 6.9
+        "delay_when_late_avg": 6.7
       },
       "21": {
         "n": 8149,
