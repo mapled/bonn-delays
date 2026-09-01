@@ -11,5 +11,5 @@ Hinweis: GitHub deaktiviert geplante Workflows nach ~60 Tagen ohne Commit auf
 den Default-Branch. Der Workflow „Keepalive" committet deshalb monatlich den
 Zeitstempel unten und haelt so den Cron am Leben.
 
-Letzter automatischer Keepalive: 2026-08-18
+Letzter automatischer Keepalive: 2026-09-01
 
