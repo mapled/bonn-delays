@@ -18,6 +18,7 @@ import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import requests
 
@@ -51,12 +52,23 @@ for _sid in os.environ.get("EXTRA_STOP_IDS", "").split(","):
 EFA_BASE = "https://efa.vrr.de/vrr/XML_DM_REQUEST"
 DATA_DIR  = Path(os.environ.get("DATA_DIR", "data"))
 
+LOCAL_TZ = ZoneInfo("Europe/Berlin")
+
+# ACHTUNG (04.09.2026): `planned_ts`/`actual_ts` tragen historisch ORTSZEIT mit dem
+# falschen Label `+00:00` — die EFA-Datumsteile sind Europe/Berlin, bekommen in
+# `to_ts()` aber `timezone.utc` aufgepraegt. Das Feld bleibt unveraendert, damit
+# bestehende Auswertungen und die Archive weiter zusammenpassen; `delay_min` ist
+# ohnehin nicht betroffen (Plan und Ist gehen durch dieselbe Funktion, der Versatz
+# kuerzt sich heraus). Daneben steht seit dem 04.09.2026 `planned_ts_local` mit
+# korrektem Offset (+02:00 Sommer / +01:00 Winter) — das ist das Feld, das man fuer
+# Uhrzeiten, Stundenfilter und Tagesgrenzen nehmen soll.
 COLUMNS = [
     "collected_at", "corridor",
     "stop_id", "stop_name",
     "line", "direction",
     "planned_ts", "actual_ts", "delay_min",
     "status",
+    "planned_ts_local",
 ]
 
 
@@ -89,18 +101,23 @@ def parse_departures(raw: dict, stop_id: str, corridor: str, collected_at: str) 
             dt_plan = dep.get("dateTime", {})
             dt_real = dep.get("realDateTime", dep.get("dateTime", {}))
 
-            def to_ts(dt: dict):
+            def to_ts(dt: dict, tz=timezone.utc):
+                # tz=timezone.utc reproduziert das historische (falsche) Label,
+                # tz=LOCAL_TZ liefert die korrekt beschriftete Ortszeit.
+                # Bei der Zeitumstellung im Herbst existiert eine Stunde doppelt;
+                # fold=0 waehlt die erste (noch Sommerzeit).
                 try:
                     return datetime(
                         int(dt["year"]), int(dt["month"]), int(dt["day"]),
                         int(dt["hour"]), int(dt["minute"]),
-                        tzinfo=timezone.utc,
+                        tzinfo=tz, fold=0,
                     ).isoformat()
                 except Exception:
                     return None
 
-            planned_ts = to_ts(dt_plan)
-            actual_ts  = to_ts(dt_real)
+            planned_ts       = to_ts(dt_plan)
+            planned_ts_local = to_ts(dt_plan, LOCAL_TZ)
+            actual_ts        = to_ts(dt_real)
             delay_min  = ""
             if planned_ts and actual_ts:
                 from datetime import datetime as dtc
@@ -119,10 +136,20 @@ def parse_departures(raw: dict, stop_id: str, corridor: str, collected_at: str) 
                 "actual_ts":    actual_ts,
                 "delay_min":    delay_min,
                 "status":       status,
+                "planned_ts_local": planned_ts_local,
             })
         except Exception:
             continue
     return rows
+
+
+def existing_header(path: Path) -> list[str] | None:
+    """Kopfzeile einer bereits laufenden Monatsdatei, sonst None."""
+    try:
+        with open(path, newline="", encoding="utf-8") as f:
+            return next(csv.reader(f))
+    except (FileNotFoundError, StopIteration):
+        return None
 
 
 def write_rows(rows: list[dict], collected_at: str):
@@ -130,10 +157,14 @@ def write_rows(rows: list[dict], collected_at: str):
         return
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     path = DATA_DIR / f"delays_{collected_at[:7]}.csv"
-    new  = not path.exists()
+    # Eine angefangene Monatsdatei behaelt ihr Schema: Neue Spalten wuerden sonst
+    # Zeilen erzeugen, die laenger sind als die Kopfzeile darueber. Neue Spalten
+    # greifen deshalb erst ab der naechsten Monatsdatei.
+    header = existing_header(path)
     with open(path, "a", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=COLUMNS)
-        if new:
+        w = csv.DictWriter(f, fieldnames=header or COLUMNS,
+                           restval="", extrasaction="ignore")
+        if header is None:
             w.writeheader()
         w.writerows(rows)
 
