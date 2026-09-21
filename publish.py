@@ -60,8 +60,17 @@ STOPS_BY_CORRIDOR = {
 EFA_BASE = "https://efa.vrr.de/vrr/XML_DM_REQUEST"
 
 
-def _fetch_stop_delays(stop_id: str) -> list[float]:
-    """Gibt Liste der Verspätungsminuten für eine Haltestelle zurück."""
+def _ist_ersatzverkehr(line: str) -> bool:
+    """Schienenersatzverkehr (Kennungen BE16, BE66, BE68 …) — Busse, die seit
+    17.09.2026 auch an den Stadtbahn-Messhalten abfahren (BE68 Hbf↔Ramersdorf,
+    6–10 % der Abfahrten im Korridor stadtbahn, Beleg beleg_radar_2026-09-21.md).
+    Sie gehoeren nicht in den Stadtbahn-Wert. NICHT verwechseln mit Linie `E`
+    (Schuelerverstaerker, kein Ersatzverkehr)."""
+    return (line or "").strip().upper().startswith(("BE", "SEV"))
+
+
+def _fetch_stop_delays(stop_id: str) -> list[tuple[str, float]]:
+    """Gibt Liste (Linie, Verspätungsminuten) für eine Haltestelle zurück."""
     r = requests.get(EFA_BASE, params={
         "outputFormat": "JSON", "type_dm": "stop", "name_dm": stop_id,
         "mode": "direct", "useRealtime": 1, "limit": 20, "depType": "stopEvents",
@@ -76,7 +85,8 @@ def _fetch_stop_delays(stop_id: str) -> list[float]:
                 return datetime(int(dt["year"]), int(dt["month"]), int(dt["day"]),
                                 int(dt["hour"]), int(dt["minute"]), tzinfo=timezone.utc)
             d = (to_dt(dt_real) - to_dt(dt_plan)).total_seconds() / 60
-            delays.append(round(d, 1))
+            line = dep.get("servingLine", {}).get("number", "")
+            delays.append((line, round(d, 1)))
         except Exception:
             pass
     return delays
@@ -118,9 +128,11 @@ def fetch_oepnv_delays() -> dict:
         cor_delays: list[float] = []
         for stop_id in stops:
             try:
-                delays = _fetch_stop_delays(stop_id)
-                cor_delays.extend(delays)
-                all_delays.extend(delays)
+                for line, d in _fetch_stop_delays(stop_id):
+                    all_delays.append(d)
+                    if corridor == "stadtbahn" and _ist_ersatzverkehr(line):
+                        continue   # Ersatzbus nicht als Stadtbahn werten
+                    cor_delays.append(d)
             except Exception as e:
                 print(f"  EFA FEHLER {stop_id}: {e}")
         per_corridor[corridor] = cor_delays
@@ -210,6 +222,8 @@ def compute_7day_avg() -> dict:
                             continue   # Artefakt verwerfen
                         n_days.add(ts.date().isoformat())
                         cor = row["corridor"]
+                        if cor == "stadtbahn" and _ist_ersatzverkehr(row.get("line", "")):
+                            cor = "stadtbahn_ersatz"   # additiver Schluessel (I6)
                         delays_by_corridor.setdefault(cor, []).append(d)
                         all_delays.append(d)
                         by_hour.setdefault(ts.hour, []).append(d)
@@ -263,7 +277,9 @@ def compute_recent_oepnv(hours: int = 2) -> dict:
                         if not (ARTIFACT_MIN <= d <= ARTIFACT_MAX):
                             continue
                         delays.append(d)
-                        (bahn if row["corridor"] == "stadtbahn" else bus).append(d)
+                        ist_bahn = (row["corridor"] == "stadtbahn"
+                                    and not _ist_ersatzverkehr(row.get("line", "")))
+                        (bahn if ist_bahn else bus).append(d)
                     except Exception:
                         pass
         except Exception:
@@ -273,7 +289,7 @@ def compute_recent_oepnv(hours: int = 2) -> dict:
     s = _delay_stats(delays)            # Aggregat bleibt top-level (I6-kompatibel)
     s["available"] = True
     s["window_hours"] = hours
-    s["bus"]  = _delay_stats(bus)       # Bus = alle Korridore außer Stadtbahn
+    s["bus"]  = _delay_stats(bus)       # Bus = alle Korridore außer Stadtbahn + Ersatzbusse
     s["bahn"] = _delay_stats(bahn)      # Bahn = Stadtbahn (U-Tunnel)
     return s
 
