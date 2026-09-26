@@ -1,49 +1,49 @@
 {
-  "updated_at": "2026-09-26T04:51:17Z",
+  "updated_at": "2026-09-26T09:33:55Z",
   "oepnv_aktuell": {
     "median_delay_min": 0.0,
-    "avg_delay_min": 0.6,
-    "pct_on_time": 94.0,
-    "pct_over_3min": 0.9,
-    "pct_over_5min": 0.9,
-    "delay_when_late_median": 3.0,
-    "delay_when_late_avg": 9.0,
-    "n_departures": 218,
+    "avg_delay_min": 0.5,
+    "pct_on_time": 88.2,
+    "pct_over_3min": 2.7,
+    "pct_over_5min": 1.8,
+    "delay_when_late_median": 2.5,
+    "delay_when_late_avg": 3.6,
+    "n_departures": 220,
     "stadtbahn": {
-      "n": 28,
+      "n": 27,
       "median_delay_min": 0.0,
-      "avg_delay_min": 1.75,
-      "pct_on_time": 92.9,
-      "pct_over_3min": 3.6,
-      "pct_over_5min": 3.6,
-      "delay_when_late_median": 24.0,
-      "delay_when_late_avg": 24.0
+      "avg_delay_min": 0.96,
+      "pct_on_time": 81.5,
+      "pct_over_3min": 7.4,
+      "pct_over_5min": 7.4,
+      "delay_when_late_median": 3.0,
+      "delay_when_late_avg": 5.0
     },
     "kaserne": {
       "n": 40,
       "median_delay_min": 0.0,
-      "avg_delay_min": 0.3,
-      "pct_on_time": 92.5,
-      "pct_over_3min": 0.0,
+      "avg_delay_min": 0.55,
+      "pct_on_time": 85.0,
+      "pct_over_3min": 2.5,
       "pct_over_5min": 0.0,
-      "delay_when_late_median": 3.0,
+      "delay_when_late_median": 2.0,
       "delay_when_late_avg": 2.7
     },
     "b56": {
       "n": 40,
       "median_delay_min": 0.0,
-      "avg_delay_min": 0.3,
-      "pct_on_time": 92.5,
+      "avg_delay_min": 0.35,
+      "pct_on_time": 90.0,
       "pct_over_3min": 0.0,
       "pct_over_5min": 0.0,
       "delay_when_late_median": 3.0,
-      "delay_when_late_avg": 2.7
+      "delay_when_late_avg": 2.8
     },
     "beuel": {
       "n": 40,
       "median_delay_min": 0.0,
-      "avg_delay_min": 0.07,
-      "pct_on_time": 97.5,
+      "avg_delay_min": 0.2,
+      "pct_on_time": 90.0,
       "pct_over_3min": 0.0,
       "pct_over_5min": 0.0,
       "delay_when_late_median": 2.0,
@@ -51,57 +51,57 @@
     }
   },
   "oepnv_2h": {
-    "n": 388,
+    "n": 390,
     "median_delay_min": 0.0,
-    "avg_delay_min": 0.39,
-    "pct_on_time": 95.4,
-    "pct_over_3min": 1.0,
-    "pct_over_5min": 0.8,
-    "delay_when_late_median": 3.0,
-    "delay_when_late_avg": 7.6,
+    "avg_delay_min": 0.37,
+    "pct_on_time": 91.8,
+    "pct_over_3min": 1.8,
+    "pct_over_5min": 1.3,
+    "delay_when_late_median": 2.0,
+    "delay_when_late_avg": 3.7,
     "available": true,
     "window_hours": 2,
     "bus": {
-      "n": 345,
+      "n": 351,
       "median_delay_min": 0.0,
-      "avg_delay_min": 0.29,
-      "pct_on_time": 95.7,
-      "pct_over_3min": 0.6,
-      "pct_over_5min": 0.6,
+      "avg_delay_min": 0.33,
+      "pct_on_time": 92.6,
+      "pct_over_3min": 1.4,
+      "pct_over_5min": 0.9,
       "delay_when_late_median": 2.0,
-      "delay_when_late_avg": 5.6
+      "delay_when_late_avg": 3.5
     },
     "bahn": {
-      "n": 43,
+      "n": 39,
       "median_delay_min": 0.0,
-      "avg_delay_min": 1.21,
-      "pct_on_time": 93.0,
-      "pct_over_3min": 4.7,
-      "pct_over_5min": 2.3,
-      "delay_when_late_median": 5.0,
-      "delay_when_late_avg": 17.3
+      "avg_delay_min": 0.72,
+      "pct_on_time": 84.6,
+      "pct_over_3min": 5.1,
+      "pct_over_5min": 5.1,
+      "delay_when_late_median": 2.5,
+      "delay_when_late_avg": 4.5
     }
   },
   "miv": {
     "12": {
       "name": "A59 → Kennedybrücke",
-      "current_min": 4.1,
+      "current_min": 11.9,
       "avg_min": 8,
-      "delta_min": -3.9,
-      "status": "fast"
+      "delta_min": 3.9,
+      "status": "moderate"
     },
     "149": {
       "name": "Kennedybrücke → A59",
-      "current_min": 4.6,
+      "current_min": 7.8,
       "avg_min": 6.2,
-      "delta_min": -1.6,
-      "status": "fast"
+      "delta_min": 1.6,
+      "status": "moderate"
     },
     "14": {
       "name": "Kölnstr. → Bertha",
-      "current_min": 3.6,
+      "current_min": 5.6,
       "avg_min": 7.3,
-      "delta_min": -3.7,
+      "delta_min": -1.7,
       "status": "fast"
     }
   },
@@ -109,17 +109,17 @@
     "available": true,
     "days_collected": 8,
     "innenstadt": {
-      "n": 4212,
+      "n": 4214,
       "median_delay_min": 0.0,
-      "avg_delay_min": 1.36,
-      "pct_on_time": 85.4,
+      "avg_delay_min": 1.35,
+      "pct_on_time": 85.5,
       "pct_over_3min": 9.5,
       "pct_over_5min": 7.0,
       "delay_when_late_median": 5.0,
       "delay_when_late_avg": 9.0
     },
     "Kasernenstr_bleibt": {
-      "n": 2817,
+      "n": 2819,
       "median_delay_min": 0.0,
       "avg_delay_min": 1.78,
       "pct_on_time": 80.8,
@@ -131,42 +131,42 @@
     "Adenauerallee_ref": {
       "n": 2794,
       "median_delay_min": 0.0,
-      "avg_delay_min": 0.77,
-      "pct_on_time": 92.8,
-      "pct_over_3min": 4.9,
-      "pct_over_5min": 4.0,
-      "delay_when_late_median": 7.0,
-      "delay_when_late_avg": 10.4
+      "avg_delay_min": 0.68,
+      "pct_on_time": 93.0,
+      "pct_over_3min": 4.7,
+      "pct_over_5min": 3.8,
+      "delay_when_late_median": 6.5,
+      "delay_when_late_avg": 9.4
     },
     "B56_entfaellt": {
-      "n": 2817,
+      "n": 2819,
       "median_delay_min": 0.0,
-      "avg_delay_min": 1.07,
-      "pct_on_time": 87.4,
-      "pct_over_3min": 6.9,
+      "avg_delay_min": 1.06,
+      "pct_on_time": 87.5,
+      "pct_over_3min": 6.8,
       "pct_over_5min": 4.8,
       "delay_when_late_median": 4.0,
-      "delay_when_late_avg": 8.2
-    },
-    "stadtbahn_ersatz": {
-      "n": 476,
-      "median_delay_min": 0.0,
-      "avg_delay_min": 0.79,
-      "pct_on_time": 95.6,
-      "pct_over_3min": 3.6,
-      "pct_over_5min": 3.2,
-      "delay_when_late_median": 13.0,
-      "delay_when_late_avg": 17.7
+      "delay_when_late_avg": 8.3
     },
     "stadtbahn": {
       "n": 2319,
       "median_delay_min": 0.0,
       "avg_delay_min": 1.7,
-      "pct_on_time": 85.1,
+      "pct_on_time": 85.0,
       "pct_over_3min": 11.0,
-      "pct_over_5min": 8.5,
+      "pct_over_5min": 8.6,
       "delay_when_late_median": 7.0,
-      "delay_when_late_avg": 11.2
+      "delay_when_late_avg": 11.1
+    },
+    "stadtbahn_ersatz": {
+      "n": 477,
+      "median_delay_min": 0.0,
+      "avg_delay_min": 0.44,
+      "pct_on_time": 96.2,
+      "pct_over_3min": 2.7,
+      "pct_over_5min": 2.3,
+      "delay_when_late_median": 9.0,
+      "delay_when_late_avg": 11.3
     },
     "beuel": {
       "n": 2819,
@@ -175,18 +175,18 @@
       "pct_on_time": 87.8,
       "pct_over_3min": 8.3,
       "pct_over_5min": 6.1,
-      "delay_when_late_median": 5.5,
+      "delay_when_late_median": 6.0,
       "delay_when_late_avg": 9.0
     },
     "gesamt": {
-      "n": 18254,
+      "n": 18261,
       "median_delay_min": 0.0,
-      "avg_delay_min": 1.28,
-      "pct_on_time": 86.7,
+      "avg_delay_min": 1.26,
+      "pct_on_time": 86.8,
       "pct_over_3min": 8.6,
       "pct_over_5min": 6.4,
       "delay_when_late_median": 5.0,
-      "delay_when_late_avg": 9.4
+      "delay_when_late_avg": 9.2
     },
     "byhour": {
       "0": {
@@ -210,14 +210,14 @@
         "delay_when_late_avg": 6.8
       },
       "6": {
-        "n": 1551,
-        "pct_on_time": 78,
-        "delay_when_late_avg": 9.8
+        "n": 1168,
+        "pct_on_time": 74,
+        "delay_when_late_avg": 9.4
       },
       "9": {
-        "n": 390,
-        "pct_on_time": 82,
-        "delay_when_late_avg": 6.4
+        "n": 780,
+        "pct_on_time": 87,
+        "delay_when_late_avg": 5.6
       },
       "10": {
         "n": 764,
@@ -288,9 +288,9 @@
   },
   "miv_7tage": {
     "available": true,
-    "days_collected": 7,
-    "avg_current_min": 9.7,
-    "avg_delta_min": 1.75,
+    "days_collected": 8,
+    "avg_current_min": 10.0,
+    "avg_delta_min": 2.0,
     "n": 26
   }
 }
