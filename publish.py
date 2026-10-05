@@ -65,8 +65,17 @@ def _ist_ersatzverkehr(line: str) -> bool:
     17.09.2026 auch an den Stadtbahn-Messhalten abfahren (BE68 Hbf↔Ramersdorf,
     6–10 % der Abfahrten im Korridor stadtbahn, Beleg beleg_radar_2026-09-21.md).
     Sie gehoeren nicht in den Stadtbahn-Wert. NICHT verwechseln mit Linie `E`
-    (Schuelerverstaerker, kein Ersatzverkehr)."""
-    return (line or "").strip().upper().startswith(("BE", "SEV"))
+    (Schuelerverstaerker, kein Ersatzverkehr).
+
+    Dazu KVB-Ersatzbusse, die EFA OHNE Praefix fuehrt: „118" (Linie 18,
+    10.–31.08.2026 an Bonn Hbf) und „116" (Linie 16/63, 17.10.–02.11.2026).
+    Bewusst als Liste, nicht als Regel „1xx": „117" ist eine regulaere Linie
+    (Beleg beleg_radar_2026-10-05.md)."""
+    s = (line or "").strip().upper()
+    return s.startswith(("BE", "SEV")) or s in _KVB_ERSATZ_OHNE_PRAEFIX
+
+
+_KVB_ERSATZ_OHNE_PRAEFIX = {"116", "118"}
 
 
 def _fetch_stop_delays(stop_id: str) -> list[tuple[str, float]]:

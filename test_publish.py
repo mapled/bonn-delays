@@ -49,6 +49,12 @@ def test_ist_ersatzverkehr():
     assert not publish._ist_ersatzverkehr("66")
     assert not publish._ist_ersatzverkehr("E")      # Schuelerverstaerker
     assert not publish._ist_ersatzverkehr("")
+    # KVB-Ersatz ohne Praefix (Beleg beleg_radar_2026-10-05.md)
+    assert publish._ist_ersatzverkehr("116")
+    assert publish._ist_ersatzverkehr(" 118 ")
+    assert not publish._ist_ersatzverkehr("117")   # regulaere Linie
+    assert not publish._ist_ersatzverkehr("16")
+    assert not publish._ist_ersatzverkehr("18")
 
 
 def test_7tage_stadtbahn_ohne_ersatz():
